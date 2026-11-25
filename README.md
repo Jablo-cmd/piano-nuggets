@@ -42,3 +42,15 @@ This is not initially a student portal or learning-management system.
 ## Important implementation rule
 
 Treat the documentation as the current source of truth. Where a detail is marked **TBC**, **not yet confirmed**, or **future consideration**, do not invent a value or publish placeholder information as fact. Resolve launch-critical decisions before deployment.
+
+## Development
+
+Phase one public website: Next.js (App Router), TypeScript, Tailwind CSS, Framer Motion, Lucide. No backend, database or analytics is connected.
+
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run lint && npm run typecheck && npm run build
+```
+
+Unconfirmed business details (WhatsApp number, email, studio location, Fresh Wind Music URL) are configured through `NEXT_PUBLIC_*` variables; see `.env.example` and `src/config/site.ts`. Prices live only in `src/config/pricing.ts`. The enrolment form is a validated UI preview: `src/lib/submitEnquiry.ts` is deliberately not connected, so no enquiry data is sent, stored or logged.
