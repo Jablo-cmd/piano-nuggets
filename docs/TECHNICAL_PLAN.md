@@ -57,7 +57,13 @@ Requirements:
 
 If Supabase is selected, document the schema, Row Level Security policies, migrations and backup approach before storing real enquiries. Public visitors must not be able to read enquiry records.
 
+### Supabase assessment
+
+Supabase has **not** been approved. Enquiries in phase one are low-volume and need only secure delivery to a confirmed recipient, so a server-side route that validates the submission and sends a notification (for example by email) may be sufficient and avoids storing personal data of minors in a new database. Supabase becomes worthwhile only if the owner needs a durable, queryable record of enquiries (or phase two admin tooling). Decide this with the owner before implementation; if chosen, follow the safeguards above. Status: **TBC**.
+
 ## 6. SEO and discoverability
+
+See also [Content and SEO](CONTENT_AND_SEO.md).
 
 - Unique page titles and meta descriptions.
 - Canonical URLs once the production domain is selected.

@@ -25,11 +25,13 @@ This is not initially a student portal or learning-management system.
 
 ## Documentation
 
+- [Project overview](docs/PROJECT_OVERVIEW.md)
 - [Product requirements](docs/PRODUCT_REQUIREMENTS.md)
 - [Brand and design guidelines](docs/BRAND_GUIDELINES.md)
 - [Programme, curriculum and pricing](docs/PROGRAMME_AND_PRICING.md)
 - [Operations and enrolment](docs/OPERATIONS_AND_ENROLMENT.md)
 - [Technical plan](docs/TECHNICAL_PLAN.md)
+- [Content and SEO](docs/CONTENT_AND_SEO.md)
 - [Roadmap and open decisions](docs/ROADMAP_AND_OPEN_DECISIONS.md)
 
 ## Planned hosting
