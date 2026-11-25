@@ -20,13 +20,16 @@ Do not add dependencies simply because they are listed here. Choose a lean imple
 
 ## 3. Hosting and domains
 
-Initial intended hostname:
+Production hostname (confirmed and connected to the Vercel project):
 
-`pianonuggets.aurisnexus.co.za`
+`piano-nuggets.aurisnexus.co.za`
+
+- DNS is a CNAME to the target Vercel provides, managed at the registrar/DNS host of `aurisnexus.co.za` (external nameservers).
+- `pianonuggets.aurisnexus.co.za` (no hyphen) is added as a **308 redirect** to the production hostname. It only resolves once its own DNS CNAME is created.
+- `piano-nuggets.vercel.app` remains available as a Vercel-assigned address.
+- The canonical URL, sitemap and robots.txt are driven by `NEXT_PUBLIC_SITE_URL`, set in Vercel (Production) to `https://piano-nuggets.aurisnexus.co.za`. It is a build-time value: changing it requires a redeploy.
 
 A standalone `pianonuggets.co.za` domain may be considered later, subject to availability, registration and DNS configuration.
-
-Do not assume that either domain is already connected to Vercel. Domain, DNS, environment and deployment configuration must be verified before launch.
 
 ## 4. Initial architecture
 

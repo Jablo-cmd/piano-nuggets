@@ -24,7 +24,7 @@ This repository holds the documentation foundation, and later the source code, f
 | Pricing | See [Programme and Pricing](PROGRAMME_AND_PRICING.md) (the only pricing source of truth) |
 | Enrolment | Website collects **enquiries**, not automatic bookings; the team contacts the enquirer |
 | Phase one | Public marketing and enrolment-enquiry website |
-| Planned initial hostname | `pianonuggets.aurisnexus.co.za` |
+| Production hostname | `piano-nuggets.aurisnexus.co.za` (redirect from `pianonuggets.aurisnexus.co.za`) |
 
 ## 4. Proposals and unresolved items
 

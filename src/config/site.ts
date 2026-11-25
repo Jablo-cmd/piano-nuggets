@@ -4,7 +4,7 @@
  */
 const clean = (v: string | undefined) => (v && v.trim() ? v.trim() : null);
 
-const siteUrl = (clean(process.env.NEXT_PUBLIC_SITE_URL) ?? "https://pianonuggets.aurisnexus.co.za").replace(/\/$/, "");
+const siteUrl = (clean(process.env.NEXT_PUBLIC_SITE_URL) ?? "https://piano-nuggets.aurisnexus.co.za").replace(/\/$/, "");
 
 export const site = {
   name: "Piano Nuggets",

@@ -53,7 +53,7 @@ The following details must be confirmed before public launch:
 | Enquiry recipient and notification route | TBC | Confirm before enabling form submission |
 | Privacy notice and retention period | TBC | Review before collecting live data |
 | Supabase project and approval | TBC | Do not assume an existing project is authorised for this product |
-| Domain and DNS configuration | TBC | Verify before deployment |
+| Domain and DNS configuration | Done for `piano-nuggets.aurisnexus.co.za`; redirect host `pianonuggets.aurisnexus.co.za` needs a DNS CNAME | Update `NEXT_PUBLIC_SITE_URL` and redeploy if the hostname changes |
 | Lesson availability / timetable | TBC | Do not imply real-time availability |
 
 ## 3. Decisions already established

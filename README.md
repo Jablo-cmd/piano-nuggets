@@ -36,7 +36,9 @@ This is not initially a student portal or learning-management system.
 
 ## Planned hosting
 
-- Initial hostname: `pianonuggets.aurisnexus.co.za`
+- Production hostname: `piano-nuggets.aurisnexus.co.za` (attached to the Vercel project; DNS is a CNAME managed outside Vercel)
+- Redirect hostname: `pianonuggets.aurisnexus.co.za` (308 redirect to the production hostname; needs its own DNS CNAME to resolve)
+- Fallback address: `piano-nuggets.vercel.app`
 - Potential future domain: `pianonuggets.co.za` (availability and registration to be confirmed)
 
 ## Important implementation rule
