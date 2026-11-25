@@ -61,7 +61,7 @@ The following details must be confirmed before public launch:
 - Brand name: Piano Nuggets.
 - Tagline: Every Note Counts. Every Musician Matters.
 - Brand tone: happy, welcoming, energetic, inclusive and professional.
-- Brand colours: white, black and light orange, with warm cream as support.
+- Brand colours (refreshed 25 Nov 2026): midnight ink `#1F2A44`, white, mist `#F2F8F8`, seafoam teal `#8FD3CB`, deep teal `#1F6F73`, peach accent `#FFB59A`, lilac `#E6E2F8`.
 - Audience: all ages, not exclusively children.
 - Initial public offering: piano and keyboard lessons only.
 - Curriculum areas: practical piano/keyboard, music theory, harmony and piano technique.

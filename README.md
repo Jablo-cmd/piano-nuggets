@@ -20,7 +20,7 @@ This is not initially a student portal or learning-management system.
 - **Tagline:** Every Note Counts. Every Musician Matters.
 - **Personality:** Happy, welcoming, energetic, inclusive and professional.
 - **Audience:** Children, teenagers and adults; beginners through aspiring musicians.
-- **Visual direction:** White, black and light orange, with warm cream as a supporting neutral.
+- **Visual direction:** Cool, calm and youthful: midnight ink, white and mist, seafoam teal and lilac, with a single peach accent for primary actions (see Brand guidelines).
 - **Relationship:** A distinct education brand supported by Fresh Wind Music. Do not make Piano Nuggets look like a sub-page of the Fresh Wind recording-studio brand.
 
 ## Documentation

@@ -6,7 +6,7 @@ import { KeyStrip } from "./PianoKeys";
 
 export function PageHero({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
   return (
-    <section className="bg-brand-cream">
+    <section className="bg-brand-mist">
       <div className="container-page py-14 sm:py-20">
         <p className="eyebrow">{eyebrow}</p>
         <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.1] sm:text-5xl">{title}</h1>
@@ -17,9 +17,9 @@ export function PageHero({ eyebrow, title, children }: { eyebrow: string; title:
   );
 }
 
-export function Section({ id, title, intro, children, tone = "white" }: { id?: string; title?: string; intro?: ReactNode; children: ReactNode; tone?: "white" | "cream" }) {
+export function Section({ id, title, intro, children, tone = "white" }: { id?: string; title?: string; intro?: ReactNode; children: ReactNode; tone?: "white" | "mist" | "lilac" }) {
   return (
-    <section id={id} aria-labelledby={id ? `${id}-title` : undefined} className={tone === "cream" ? "bg-brand-cream" : ""}>
+    <section id={id} aria-labelledby={id ? `${id}-title` : undefined} className={tone === "mist" ? "bg-brand-mist" : tone === "lilac" ? "bg-brand-lilac/60" : ""}>
       <div className="container-page py-16 sm:py-20">
         {title && (
           <Reveal className="mb-10 max-w-2xl">
@@ -37,8 +37,8 @@ export function EnrolCta({ title = "Ready to start your piano journey?" }: { tit
   const wa = whatsappLink();
   return (
     <section aria-labelledby="cta-title" className="container-page mt-4">
-      <div className="relative overflow-hidden rounded-xl3 bg-brand-orange p-8 sm:p-14">
-        <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-white/30" aria-hidden="true" />
+      <div className="relative overflow-hidden rounded-xl3 bg-brand-teal p-8 sm:p-14">
+        <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-lilac/70" aria-hidden="true" />
         <div className="relative max-w-2xl">
           <h2 id="cta-title" className="text-3xl font-extrabold sm:text-4xl">{title}</h2>
           <p className="mt-3 text-lg text-brand-ink/85">

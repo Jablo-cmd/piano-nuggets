@@ -7,12 +7,12 @@ const config: Config = {
       colors: {
         brand: {
           white: "#FFFFFF",
-          ink: "#171717",
-          orange: "#FFB36B",
-          cream: "#FFF3E8",
-          // Darker orange for text/links on white (meets WCAG AA contrast)
-          "orange-deep": "#A64D00",
-          "orange-soft": "#FFD9B3",
+          ink: "#1F2A44", // midnight: text and structure
+          mist: "#F2F8F8", // soft cool background
+          teal: "#8FD3CB", // seafoam: shapes, icon tiles, highlights
+          "teal-deep": "#1F6F73", // text/links on white (WCAG AA)
+          peach: "#FFB59A", // warm accent for primary buttons
+          lilac: "#E6E2F8", // gentle secondary background
         },
       },
       fontFamily: {

@@ -10,6 +10,7 @@ import { LearningAreaIcon } from "@/components/LearningAreaIcon";
 import { PianoKeys } from "@/components/PianoKeys";
 import { FreshWindCredit } from "@/components/Footer";
 import { learningAreas } from "@/config/pricing";
+import { images } from "@/config/images";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -40,7 +41,7 @@ const why = [
 export default function HomePage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-brand-cream">
+      <section className="relative overflow-hidden bg-brand-mist">
         <div className="container-page grid items-center gap-10 py-14 sm:py-20 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <p className="eyebrow"><Sparkles aria-hidden className="h-4 w-4" /> Piano &amp; keyboard lessons</p>
@@ -52,26 +53,29 @@ export default function HomePage() {
               <ButtonLink href="/enrol">Enrol Now</ButtonLink>
               <ButtonLink href="/piano-lessons" variant="ghost">Explore the lessons</ButtonLink>
             </div>
-            <p className="mt-6 font-display text-base font-bold text-brand-orange-deep">{site.tagline}</p>
+            <p className="mt-6 font-display text-base font-bold text-brand-teal-deep">{site.tagline}</p>
           </div>
-          <Photo alt="Piano keys with warm orange shapes, a Piano Nuggets brand illustration" className="aspect-[4/3] w-full shadow-soft" priority />
+          <Photo src={images.studio.src} alt={images.studio.alt} className="aspect-[16/11] w-full shadow-soft" priority />
         </div>
       </section>
 
       <Section id="intro" title="Welcome to Piano Nuggets" intro="A welcoming place to learn piano and keyboard, whatever your age or experience.">
         <Reveal className="grid items-center gap-8 md:grid-cols-2">
-          <p className="text-lg leading-relaxed text-brand-ink/80">
-            Piano Nuggets is a music education initiative with a simple belief: every note counts and every musician matters. Our lessons help learners play with confidence, understand the music behind what they play, and enjoy the process.
-          </p>
-          <FreshWindCredit className="rounded-xl2 bg-brand-cream p-5 text-base" />
+          <div className="space-y-5">
+            <p className="text-lg leading-relaxed text-brand-ink/80">
+              Piano Nuggets is a music education initiative with a simple belief: every note counts and every musician matters. Our lessons help learners play with confidence, understand the music behind what they play, and enjoy the process.
+            </p>
+            <FreshWindCredit className="rounded-xl2 bg-brand-mist p-5 text-base" />
+          </div>
+          <Photo src={images.theoryGroup.src} alt={images.theoryGroup.alt} className="aspect-[16/10] w-full shadow-soft" sizes="(min-width:768px) 50vw, 100vw" />
         </Reveal>
       </Section>
 
-      <Section id="lessons" tone="cream" title="Piano and keyboard lessons" intro="Four connected learning areas build musical understanding, practical ability and confidence.">
+      <Section id="lessons" tone="mist" title="Piano and keyboard lessons" intro="Four connected learning areas build musical understanding, practical ability and confidence.">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {learningAreas.map((a, i) => (
             <Reveal key={a.title} delay={i * 0.05} className="card h-full">
-              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-orange"><LearningAreaIcon name={a.icon} /></span>
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-teal"><LearningAreaIcon name={a.icon} /></span>
               <h3 className="mt-4 text-lg font-bold">{a.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-brand-ink/75">{a.text}</p>
             </Reveal>
@@ -84,7 +88,7 @@ export default function HomePage() {
         <div className="grid gap-5 md:grid-cols-3">
           {formats.map((f, i) => (
             <Reveal key={f.title} delay={i * 0.05} className="card h-full">
-              <f.icon aria-hidden className="h-8 w-8 text-brand-orange-deep" />
+              <f.icon aria-hidden className="h-8 w-8 text-brand-teal-deep" />
               <h3 className="mt-4 text-lg font-bold">{f.title}</h3>
               <p className="mt-2 text-brand-ink/75">{f.text}</p>
             </Reveal>
@@ -93,7 +97,7 @@ export default function HomePage() {
         <p className="mt-6 flex items-center gap-2 text-brand-ink/75"><UserRound aria-hidden className="h-5 w-5" /> All lessons are 60 minutes. <Link className="link" href="/how-it-works">See how it works</Link></p>
       </Section>
 
-      <Section id="pricing" tone="cream" title="Clear, simple pricing" intro="Every price shows exactly what it covers, so you always know what you are paying for.">
+      <Section id="pricing" tone="mist" title="Clear, simple pricing" intro="Every price shows exactly what it covers, so you always know what you are paying for.">
         <div className="grid items-start gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           <PricingPreview />
           <div className="space-y-4 text-brand-ink/80">
@@ -108,14 +112,14 @@ export default function HomePage() {
         <div className="grid gap-6 sm:grid-cols-2">
           {why.map((w, i) => (
             <Reveal key={w.title} delay={i * 0.04} className="flex gap-4">
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-brand-cream"><w.icon aria-hidden className="h-6 w-6 text-brand-orange-deep" /></span>
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-brand-mist"><w.icon aria-hidden className="h-6 w-6 text-brand-teal-deep" /></span>
               <div><h3 className="text-lg font-bold">{w.title}</h3><p className="mt-1 text-brand-ink/75">{w.text}</p></div>
             </Reveal>
           ))}
         </div>
       </Section>
 
-      <Section id="ages" tone="cream" title="Lessons for every age" intro="Piano Nuggets is for children, teenagers and adults, from first-time beginners to returning players.">
+      <Section id="ages" tone="lilac" title="Lessons for every age" intro="Piano Nuggets is for children, teenagers and adults, from first-time beginners to returning players.">
         <div className="grid gap-5 md:grid-cols-3">
           {ages.map((a, i) => (
             <Reveal key={a.title} delay={i * 0.05} className="card h-full">

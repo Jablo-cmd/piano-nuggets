@@ -20,16 +20,26 @@ Avoid a luxury-only, dark, intimidating or overly formal aesthetic. Also avoid m
 
 ## 3. Colour palette
 
-| Role | Colour | Hex |
-|---|---|---|
-| Primary background | White | `#FFFFFF` |
-| Primary text | Near-black | `#171717` |
-| Accent | Light orange | `#FFB36B` |
-| Supporting background | Warm cream | `#FFF3E8` |
+The identity was refreshed (25 Nov 2026) from the original warm white/black/orange scheme to a cooler, calmer and more youthful palette. It is deliberately balanced: soft neutrals and teal carry most of the surface, with a single warm peach accent for primary actions.
 
-Use black for readable text and structure, white for clarity and space, and orange as a warm accent for highlights, links, icons and calls to action. Cream may be used for soft section backgrounds.
+| Role | Colour | Hex | Tailwind token |
+|---|---|---|---|
+| Primary text and structure | Midnight ink | `#1F2A44` | `brand-ink` |
+| Page background | White | `#FFFFFF` | `brand-white` |
+| Soft cool background | Mist | `#F2F8F8` | `brand-mist` |
+| Brand highlight (shapes, icon tiles, bands) | Seafoam teal | `#8FD3CB` | `brand-teal` |
+| Text and links on light backgrounds | Deep teal | `#1F6F73` | `brand-teal-deep` |
+| Primary buttons and small warm accents | Peach | `#FFB59A` | `brand-peach` |
+| Gentle secondary background | Lilac | `#E6E2F8` | `brand-lilac` |
 
-Do not allow orange text on white to become low contrast. Use a darker orange or near-black for text where necessary while retaining the approved light-orange accent in decorative and background roles.
+Usage:
+- Midnight ink for text, headings, the footer and secondary buttons. White and mist for most backgrounds; lilac for the occasional alternate section.
+- Seafoam teal for decorative shapes, icon tiles, the piano-key strip and the enrolment call-to-action band. Do not use it for body text.
+- Deep teal for links and small emphasis text on white or mist (meets WCAG AA contrast).
+- Peach only for the primary action button and tiny accents; keep it rare so it stays a signal.
+- Avoid saturated, neon or multi-colour layouts. If more than two non-neutral colours compete in one view, simplify.
+
+The previous palette (white, near-black `#171717`, light orange `#FFB36B`, warm cream `#FFF3E8`) is retired. The name and tagline are unchanged.
 
 ## 4. Typography and layout
 
@@ -42,6 +52,8 @@ Do not allow orange text on white to become low contrast. Use a darker orange or
 - Ensure motion does not interfere with reading or accessibility; respect reduced-motion preferences.
 
 ## 5. Imagery and representation
+
+**Current photography (25 Nov 2026):** four images supplied by the owner are used on Home, Piano Lessons, How It Works, About and as the social-share image (`public/images/`, referenced from `src/config/images.ts`). They appear to be computer-generated illustrations, not photographs of real learners or instructors, and they show instructors wearing Piano Nuggets-branded shirts and banners in the earlier orange/black colours. Until they are replaced with real photography (or clearly disclosed as illustrative), do not describe the people shown as actual Piano Nuggets instructors or students, and do not use them to imply named staff or qualifications. Consider regenerating or replacing them so the on-image branding matches the current palette.
 
 Photography should feel natural, documentary-style, warm and welcoming.
 

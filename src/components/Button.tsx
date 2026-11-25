@@ -3,7 +3,7 @@ import type { ComponentProps, ReactNode } from "react";
 
 type Variant = "primary" | "secondary" | "ghost";
 const styles: Record<Variant, string> = {
-  primary: "bg-brand-orange text-brand-ink hover:bg-[#ffa34d] shadow-soft",
+  primary: "bg-brand-peach text-brand-ink hover:bg-[#FFA283] shadow-soft",
   secondary: "bg-brand-ink text-white hover:bg-black",
   ghost: "border-2 border-brand-ink/80 text-brand-ink hover:bg-brand-ink hover:text-white",
 };

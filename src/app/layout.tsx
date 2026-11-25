@@ -22,11 +22,12 @@ export const metadata: Metadata = {
     title: "Piano Nuggets — Piano & Keyboard Lessons",
     description: site.description,
     url: "/",
+    images: [{ url: "/images/piano-lesson-studio.webp", width: 1672, height: 941, alt: "A learner and instructor at the piano" }],
   },
-  twitter: { card: "summary_large_image", title: "Piano Nuggets", description: site.description },
+  twitter: { card: "summary_large_image", title: "Piano Nuggets", description: site.description, images: ["/images/piano-lesson-studio.webp"] },
 };
 
-export const viewport: Viewport = { themeColor: "#FFB36B", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#8FD3CB", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

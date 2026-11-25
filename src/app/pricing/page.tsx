@@ -19,7 +19,7 @@ export default function PricingPage() {
       <Section id="individual" title="Individual lessons" intro="One-to-one tuition. Monthly packages use a four-week month.">
         <IndividualPricing />
       </Section>
-      <Section id="group" tone="cream" title="Group lessons" intro="Pay attention to the unit: the studio price is for the whole group; the online price is per student.">
+      <Section id="group" tone="mist" title="Group lessons" intro="Pay attention to the unit: the studio price is for the whole group; the online price is per student.">
         <GroupPricing />
       </Section>
       <Section id="extras" title="Registration, materials and home lessons">
