@@ -1,3 +1,4 @@
+import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Mail, MapPin, MessageCircle } from "lucide-react";
@@ -19,7 +20,7 @@ export default function ContactPage() {
   const wa = whatsappLink();
   return (
     <>
-      <PageHero eyebrow="Contact" title="Let's talk about piano lessons.">
+      <PageHero eyebrow="Contact" title={<>Let&rsquo;s talk about <Accent>piano lessons.</Accent></>}>
         Questions about lessons, formats or home-lesson quotations? Send an enrolment enquiry and our team will be in touch.
       </PageHero>
       <Section id="details">

@@ -24,24 +24,35 @@ The identity was refreshed (25 Nov 2026) from the original warm white/black/oran
 
 | Role | Colour | Hex | Tailwind token |
 |---|---|---|---|
-| Primary text and structure | Midnight ink | `#1F2A44` | `brand-ink` |
+| Primary text and structure | Midnight navy (matches the logo) | `#0B1635` | `brand-ink` |
 | Page background | White | `#FFFFFF` | `brand-white` |
-| Soft cool background | Mist | `#F2F8F8` | `brand-mist` |
-| Brand highlight (shapes, icon tiles, bands) | Seafoam teal | `#8FD3CB` | `brand-teal` |
-| Text and links on light backgrounds | Deep teal | `#1F6F73` | `brand-teal-deep` |
+| Soft cool background | Mist | `#F1F8FB` | `brand-mist` |
+| Brand highlight (shapes, icon tiles, bands) | Aqua | `#9EDCEB` | `brand-teal` |
+| Large display accents and underlines only | Logo cyan | `#019FCB` | `brand-cyan` |
+| Text and links on light backgrounds | Deep cyan | `#00718F` | `brand-teal-deep` |
 | Primary buttons and small warm accents | Peach | `#FFB59A` | `brand-peach` |
-| Gentle secondary background | Lilac | `#E6E2F8` | `brand-lilac` |
+| Gentle secondary background | Lilac | `#E7E4FA` | `brand-lilac` |
 
 Usage:
 - Midnight ink for text, headings, the footer and secondary buttons. White and mist for most backgrounds; lilac for the occasional alternate section.
-- Seafoam teal for decorative shapes, icon tiles, the piano-key strip and the enrolment call-to-action band. Do not use it for body text.
-- Deep teal for links and small emphasis text on white or mist (meets WCAG AA contrast).
+- Aqua for decorative shapes, icon tiles, the piano-key strip and the enrolment call-to-action band. Do not use it for body text.
+- Deep cyan for links and small emphasis text on white or mist (meets WCAG AA contrast).
 - Peach only for the primary action button and tiny accents; keep it rare so it stays a signal.
 - Avoid saturated, neon or multi-colour layouts. If more than two non-neutral colours compete in one view, simplify.
 
 The previous palette (white, near-black `#171717`, light orange `#FFB36B`, warm cream `#FFF3E8`) is retired. The name and tagline are unchanged.
 
+## 3a. Logo
+
+The official logo (navy piano-key "P" mark with a blue-to-magenta gradient edge, navy "Piano" and cyan "Nuggets" wordmark, strapline "Learn · Play · Grow") is stored in `public/images/`: `logo-lockup.png` (mark + wordmark, used in the header and footer), `logo-full.png` (with strapline) and `logo-mark.png` (icon only, also the favicon). On dark backgrounds, place the lockup on a white panel; do not recolour it. The strapline "Learn · Play · Grow" is part of the logo artwork; the brand tagline remains "Every Note Counts. Every Musician Matters."
+
 ## 4. Typography and layout
+
+- **Headings:** Outfit (geometric sans, close to the logo wordmark), tight tracking, balanced line breaks.
+- **Accent words:** Fraunces italic (soft optical axis) with a drawn aqua underline, used on one word or short phrase per heading to add lift. Use sparingly; never more than one accent per heading.
+- **Body and UI:** DM Sans.
+- Prices use tabular numerals.
+
 
 - Use a friendly, modern, highly legible typeface.
 - Use clear heading hierarchy and comfortable line lengths.

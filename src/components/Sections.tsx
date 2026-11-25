@@ -4,12 +4,12 @@ import { Reveal } from "./Reveal";
 import { site, whatsappLink } from "@/config/site";
 import { KeyStrip } from "./PianoKeys";
 
-export function PageHero({ eyebrow, title, children }: { eyebrow: string; title: string; children?: ReactNode }) {
+export function PageHero({ eyebrow, title, children }: { eyebrow: string; title: ReactNode; children?: ReactNode }) {
   return (
     <section className="bg-brand-mist">
       <div className="container-page py-14 sm:py-20">
         <p className="eyebrow">{eyebrow}</p>
-        <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.1] sm:text-5xl">{title}</h1>
+        <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.08] sm:text-5xl">{title}</h1>
         {children && <div className="mt-5 max-w-2xl text-lg leading-relaxed text-brand-ink/80">{children}</div>}
       </div>
       <KeyStrip />
@@ -17,7 +17,7 @@ export function PageHero({ eyebrow, title, children }: { eyebrow: string; title:
   );
 }
 
-export function Section({ id, title, intro, children, tone = "white" }: { id?: string; title?: string; intro?: ReactNode; children: ReactNode; tone?: "white" | "mist" | "lilac" }) {
+export function Section({ id, title, intro, children, tone = "white" }: { id?: string; title?: ReactNode; intro?: ReactNode; children: ReactNode; tone?: "white" | "mist" | "lilac" }) {
   return (
     <section id={id} aria-labelledby={id ? `${id}-title` : undefined} className={tone === "mist" ? "bg-brand-mist" : tone === "lilac" ? "bg-brand-lilac/60" : ""}>
       <div className="container-page py-16 sm:py-20">

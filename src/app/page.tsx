@@ -1,3 +1,4 @@
+import { Accent } from "@/components/Accent";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Building2, Globe, Home as HomeIcon, Users, UserRound, Sparkles, Heart, Layers } from "lucide-react";
@@ -45,7 +46,7 @@ export default function HomePage() {
         <div className="container-page grid items-center gap-10 py-14 sm:py-20 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <p className="eyebrow"><Sparkles aria-hidden className="h-4 w-4" /> Piano &amp; keyboard lessons</p>
-            <h1 className="mt-5 text-5xl font-extrabold leading-[1.05] sm:text-6xl">Every great musician starts somewhere.</h1>
+            <h1 className="mt-5 text-5xl font-extrabold leading-[1.05] sm:text-6xl">Every great musician starts <Accent>somewhere.</Accent></h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-brand-ink/80">
               Discover the joy of music through piano and keyboard lessons designed to inspire, teach and develop confident musicians.
             </p>
@@ -59,7 +60,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Section id="intro" title="Welcome to Piano Nuggets" intro="A welcoming place to learn piano and keyboard, whatever your age or experience.">
+      <Section id="intro" title={<>Welcome to <Accent>Piano Nuggets</Accent></>} intro="A welcoming place to learn piano and keyboard, whatever your age or experience.">
         <Reveal className="grid items-center gap-8 md:grid-cols-2">
           <div className="space-y-5">
             <p className="text-lg leading-relaxed text-brand-ink/80">
@@ -71,7 +72,7 @@ export default function HomePage() {
         </Reveal>
       </Section>
 
-      <Section id="lessons" tone="mist" title="Piano and keyboard lessons" intro="Four connected learning areas build musical understanding, practical ability and confidence.">
+      <Section id="lessons" tone="mist" title={<>Piano and keyboard <Accent>lessons</Accent></>} intro="Four connected learning areas build musical understanding, practical ability and confidence.">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {learningAreas.map((a, i) => (
             <Reveal key={a.title} delay={i * 0.05} className="card h-full">
@@ -84,7 +85,7 @@ export default function HomePage() {
         <div className="mt-8"><ButtonLink href="/piano-lessons" variant="secondary">More about the lessons</ButtonLink></div>
       </Section>
 
-      <Section id="formats" title="Learn the way that suits you" intro="Individual or group lessons, in the studio, at home or online.">
+      <Section id="formats" title={<>Learn the way that <Accent>suits you</Accent></>} intro="Individual or group lessons, in the studio, at home or online.">
         <div className="grid gap-5 md:grid-cols-3">
           {formats.map((f, i) => (
             <Reveal key={f.title} delay={i * 0.05} className="card h-full">
@@ -97,7 +98,7 @@ export default function HomePage() {
         <p className="mt-6 flex items-center gap-2 text-brand-ink/75"><UserRound aria-hidden className="h-5 w-5" /> All lessons are 60 minutes. <Link className="link" href="/how-it-works">See how it works</Link></p>
       </Section>
 
-      <Section id="pricing" tone="mist" title="Clear, simple pricing" intro="Every price shows exactly what it covers, so you always know what you are paying for.">
+      <Section id="pricing" tone="mist" title={<>Clear, simple <Accent>pricing</Accent></>} intro="Every price shows exactly what it covers, so you always know what you are paying for.">
         <div className="grid items-start gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           <PricingPreview />
           <div className="space-y-4 text-brand-ink/80">
@@ -108,7 +109,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="why" title="Why choose Piano Nuggets">
+      <Section id="why" title={<>Why choose <Accent>Piano Nuggets</Accent></>}>
         <div className="grid gap-6 sm:grid-cols-2">
           {why.map((w, i) => (
             <Reveal key={w.title} delay={i * 0.04} className="flex gap-4">
@@ -119,7 +120,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="ages" tone="lilac" title="Lessons for every age" intro="Piano Nuggets is for children, teenagers and adults, from first-time beginners to returning players.">
+      <Section id="ages" tone="lilac" title={<>Lessons for <Accent>every age</Accent></>} intro="Piano Nuggets is for children, teenagers and adults, from first-time beginners to returning players.">
         <div className="grid gap-5 md:grid-cols-3">
           {ages.map((a, i) => (
             <Reveal key={a.title} delay={i * 0.05} className="card h-full">

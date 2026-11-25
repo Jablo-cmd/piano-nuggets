@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
+import { Outfit, Fraunces, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/config/site";
 
-const display = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["600", "700", "800"], variable: "--font-display", display: "swap" });
+const display = Outfit({ subsets: ["latin"], weight: ["500", "600", "700", "800"], variable: "--font-display", display: "swap" });
+const accent = Fraunces({ subsets: ["latin"], style: ["italic"], axes: ["SOFT", "opsz"], variable: "--font-accent", display: "swap" });
 const body = DM_Sans({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 
 export const metadata: Metadata = {
@@ -27,11 +28,11 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "Piano Nuggets", description: site.description, images: ["/images/piano-lesson-studio.webp"] },
 };
 
-export const viewport: Viewport = { themeColor: "#8FD3CB", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#9EDCEB", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-ZA" className={`${display.variable} ${body.variable}`}>
+    <html lang="en-ZA" className={`${display.variable} ${accent.variable} ${body.variable}`}>
       <body>
         <a href="#main" className="sr-only z-50 rounded-full bg-brand-ink px-4 py-2 text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to content</a>
         <JsonLd
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             slogan: site.tagline,
             url: site.url,
             description: site.description,
+            logo: `${site.url}/images/logo-lockup.png`,
             parentOrganization: { "@type": "Organization", name: site.supportedBy },
           }}
         />

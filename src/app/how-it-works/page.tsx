@@ -1,3 +1,4 @@
+import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import { Building2, Globe, Home as HomeIcon, Check } from "lucide-react";
 import { EnrolCta, PageHero, Section } from "@/components/Sections";
@@ -22,10 +23,10 @@ const steps = [
 export default function HowItWorksPage() {
   return (
     <>
-      <PageHero eyebrow="How It Works" title="From first enquiry to first lesson.">
+      <PageHero eyebrow="How It Works" title={<>From first enquiry to <Accent>first lesson.</Accent></>}>
         Choose where you would like to learn, tell us a little about the learner, and we will take it from there.
       </PageHero>
-      <Section id="formats" title="Three ways to learn">
+      <Section id="formats" title={<>Three ways <Accent>to learn</Accent></>}>
         <div className="grid gap-5 md:grid-cols-3">
           <Reveal className="card h-full"><Building2 aria-hidden className="h-8 w-8 text-brand-teal-deep" /><h3 className="mt-4 text-xl font-bold">Studio lessons</h3><p className="mt-2 text-brand-ink/75">Attend the Fresh Wind Music studio. Public location details are to be confirmed.</p></Reveal>
           <Reveal delay={0.05} className="card h-full"><HomeIcon aria-hidden className="h-8 w-8 text-brand-teal-deep" /><h3 className="mt-4 text-xl font-bold">Home lessons</h3><p className="mt-2 text-brand-ink/75">An instructor can be deployed to your residence, subject to location. Additional travel charges depend on where you live; request a quotation.</p></Reveal>

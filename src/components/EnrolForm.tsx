@@ -120,7 +120,7 @@ export function EnrolForm() {
           </Field>
           <div>
             <label className="flex items-start gap-3">
-              <input type="checkbox" name="guardianConfirm" className="mt-1 h-5 w-5 accent-[#1F2A44]" aria-invalid={!!e.guardianConfirm} />
+              <input type="checkbox" name="guardianConfirm" className="mt-1 h-5 w-5 accent-[#0B1635]" aria-invalid={!!e.guardianConfirm} />
               <span>I am the parent or legal guardian, or I am overseeing this enquiry on their behalf.</span>
             </label>
             {e.guardianConfirm && <p className="field-error" role="alert">{e.guardianConfirm}</p>}

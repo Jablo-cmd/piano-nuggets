@@ -5,7 +5,7 @@ import { Reveal } from "./Reveal";
 function Amount({ value, unit }: { value: number; unit: string }) {
   return (
     <p>
-      <span className="font-display text-5xl font-extrabold">{fmt(value)}</span>
+      <span className="font-display text-5xl font-extrabold tabular-nums tracking-[-0.04em]">{fmt(value)}</span>
       <span className="mt-1 block text-sm font-semibold text-brand-ink/70">{unit}</span>
     </p>
   );

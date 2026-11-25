@@ -1,19 +1,19 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/config/site";
 
+/** Official lockup. On dark backgrounds it sits on a white pill so the navy wordmark stays legible. */
 export function Logo({ light = false }: { light?: boolean }) {
   return (
-    <Link href="/" className="inline-flex items-center gap-2.5" aria-label={`${site.name} home`}>
-      <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand-teal" aria-hidden="true">
-        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none">
-          <rect x="3" y="4" width="18" height="16" rx="3" fill="#fff" stroke="#1F2A44" strokeWidth="1.8" />
-          <rect x="8" y="4" width="2.6" height="9" rx="1" fill="#1F2A44" />
-          <rect x="13.4" y="4" width="2.6" height="9" rx="1" fill="#1F2A44" />
-        </svg>
-      </span>
-      <span className={`font-display text-xl font-extrabold ${light ? "text-white" : "text-brand-ink"}`}>
-        Piano <span className={light ? "text-brand-teal" : "text-brand-teal-deep"}>Nuggets</span>
-      </span>
+    <Link href="/" className="inline-flex items-center" aria-label={`${site.name} home`}>
+      <Image
+        src="/images/logo-lockup.png"
+        alt={site.name}
+        width={960}
+        height={300}
+        priority
+        className={light ? "h-11 w-auto rounded-xl bg-white px-3 py-1.5" : "h-11 w-auto"}
+      />
     </Link>
   );
 }

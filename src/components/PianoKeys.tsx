@@ -4,10 +4,10 @@ export function PianoKeys({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 140 60" className={className} aria-hidden="true" focusable="false" preserveAspectRatio="none">
       {Array.from({ length: 14 }).map((_, i) => (
-        <rect key={i} x={i * 10 + 0.5} y={0.5} width={9} height={59} rx={2.5} fill="#fff" stroke="#1F2A4422" />
+        <rect key={i} x={i * 10 + 0.5} y={0.5} width={9} height={59} rx={2.5} fill="#fff" stroke="#0B163522" />
       ))}
       {black.map((i) => (
-        <rect key={i} x={i * 10 + 7} y={0} width={6} height={36} rx={2} fill="#1F2A44" />
+        <rect key={i} x={i * 10 + 7} y={0} width={6} height={36} rx={2} fill="#0B1635" />
       ))}
     </svg>
   );

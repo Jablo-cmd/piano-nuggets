@@ -1,3 +1,4 @@
+import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import { Reveal } from "@/components/Reveal";
 import { EnrolCta, PageHero, Section } from "@/components/Sections";
@@ -20,10 +21,10 @@ export default function PianoLessonsPage() {
   return (
     <>
       <JsonLd data={{ "@context": "https://schema.org", "@type": "Service", name: "Piano and keyboard lessons", serviceType: "Music education", provider: { "@type": "Organization", name: site.name, url: site.url }, audience: { "@type": "Audience", audienceType: "Children, teenagers and adults" } }} />
-      <PageHero eyebrow="Piano Lessons" title="Learn to play, and understand why it works.">
+      <PageHero eyebrow="Piano Lessons" title={<>Learn to play, and understand <Accent>why it works.</Accent></>}>
         Lessons are designed to develop musical understanding, practical ability and confidence, for beginners and for learners who already have some experience.
       </PageHero>
-      <Section id="areas" title="Four connected learning areas" intro="Each area supports the others, so you grow as a complete musician.">
+      <Section id="areas" title={<>Four connected <Accent>learning areas</Accent></>} intro="Each area supports the others, so you grow as a complete musician.">
         <div className="mb-10 grid gap-5 md:grid-cols-2">
           <Reveal><Photo src={images.handsOn.src} alt={images.handsOn.alt} className="aspect-[16/10] w-full shadow-soft" sizes="(min-width:768px) 50vw, 100vw" /></Reveal>
           <Reveal delay={0.05}><Photo src={images.theoryOneToOne.src} alt={images.theoryOneToOne.alt} className="aspect-[16/10] w-full shadow-soft" sizes="(min-width:768px) 50vw, 100vw" /></Reveal>
@@ -37,7 +38,7 @@ export default function PianoLessonsPage() {
           ))}
         </div>
       </Section>
-      <Section id="who" tone="lilac" title="Who the lessons are for">
+      <Section id="who" tone="lilac" title={<>Who the lessons <Accent>are for</Accent></>}>
         <ul className="grid gap-4 text-lg md:grid-cols-3">
           <li className="card">Children beginning their musical journey, with a parent or guardian handling enrolment.</li>
           <li className="card">Teenagers who want to build practical skill and understanding.</li>
@@ -45,7 +46,7 @@ export default function PianoLessonsPage() {
         </ul>
         <p className="mt-6 max-w-2xl text-brand-ink/75">Lessons take place on piano or keyboard. Everyone starts from where they are; we do not promise particular grades, exam results or timelines.</p>
       </Section>
-      <Section id="formats" title="Individual or group">
+      <Section id="formats" title={<>Individual <Accent>or group</Accent></>}>
         <Reveal className="mb-8"><Photo src={images.theoryGroup.src} alt={images.theoryGroup.alt} className="aspect-[21/9] w-full shadow-soft" sizes="(min-width:1152px) 1100px, 100vw" /></Reveal>
         <div className="grid gap-5 md:grid-cols-2">
           <div className="card"><h3 className="text-xl font-bold">Individual lessons</h3><p className="mt-2 text-brand-ink/75">One-to-one attention, 60 minutes at a time, once or twice a week.</p></div>

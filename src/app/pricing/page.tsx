@@ -1,3 +1,4 @@
+import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import { EnrolCta, PageHero, Section } from "@/components/Sections";
 import { ExtrasPricing, GroupPricing, IndividualPricing, PricingNotes } from "@/components/PricingBlocks";
@@ -13,13 +14,13 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
-      <PageHero eyebrow="Pricing" title="Simple, transparent lesson fees.">
+      <PageHero eyebrow="Pricing" title={<>Simple, transparent <Accent>lesson fees.</Accent></>}>
         Every lesson is 60 minutes. Each price below shows what it covers, so there are no surprises.
       </PageHero>
-      <Section id="individual" title="Individual lessons" intro="One-to-one tuition. Monthly packages use a four-week month.">
+      <Section id="individual" title={<>Individual <Accent>lessons</Accent></>} intro="One-to-one tuition. Monthly packages use a four-week month.">
         <IndividualPricing />
       </Section>
-      <Section id="group" tone="mist" title="Group lessons" intro="Pay attention to the unit: the studio price is for the whole group; the online price is per student.">
+      <Section id="group" tone="mist" title={<>Group <Accent>lessons</Accent></>} intro="Pay attention to the unit: the studio price is for the whole group; the online price is per student.">
         <GroupPricing />
       </Section>
       <Section id="extras" title="Registration, materials and home lessons">

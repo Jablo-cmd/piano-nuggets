@@ -1,3 +1,4 @@
+import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import { EnrolCta, PageHero, Section } from "@/components/Sections";
 import { FreshWindCredit } from "@/components/Footer";
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="About us" title="Every note counts. Every musician matters.">
+      <PageHero eyebrow="About us" title={<>Every note counts. Every musician <Accent>matters.</Accent></>}>
         Piano Nuggets is a music education initiative supported by {site.supportedBy}.
       </PageHero>
       <Section id="approach" title="Our approach">
