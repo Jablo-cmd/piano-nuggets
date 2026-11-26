@@ -9,7 +9,7 @@ const config: Config = {
           white: "#FFFFFF",
           ink: "#170D0B", // espresso black (piano and walls): text and dark sections
           plum: "#3A2220", // mahogany: richer dark cards
-          mist: "#FBF4E8", // warm cream: soft backgrounds
+          mist: "#F5F6F7", // alpine white: soft neutral section backgrounds
           honey: "#E9A71C", // golden oak: the main accent (buttons, highlights, ribbon)
           "honey-soft": "#F8E4B6", // pale oak tint
           oak: "#B8701F", // deeper oak for hovers and small detail

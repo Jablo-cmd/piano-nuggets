@@ -27,14 +27,14 @@ The identity was refreshed again on 26 Nov 2026. The palette is taken from the P
 | Text, structure and dark sections | Espresso black | `#170D0B` | `brand-ink` |
 | Richer dark cards | Mahogany | `#3A2220` | `brand-plum` |
 | Page background | White | `#FFFFFF` | `brand-white` |
-| Soft background | Warm cream | `#FBF4E8` | `brand-mist` |
+| Soft section background | Alpine white (clean neutral, no warm or pink cast) | `#F5F6F7` | `brand-mist` |
 | Main accent: buttons, highlights, ribbon, icon tiles | Golden oak (honey) | `#E9A71C` | `brand-honey` |
 | Pale tint for small highlights | Pale oak | `#F8E4B6` | `brand-honey-soft` |
 | Hover and fine detail | Deep oak | `#B8701F` | `brand-oak` |
 | A rare soft secondary touch (numbers, glow) | Studio rose | `#C98B7E` | `brand-rose` |
 
 Usage:
-- Mostly white, cream and espresso black. Honey is the signal colour: primary buttons, the marker-style underline on accent words, icon tiles and the moving ribbon. Keep it to a touch, not a wash.
+- Mostly white, alpine white and espresso black. Honey is the signal colour: primary buttons, the marker-style underline on accent words, icon tiles and the moving ribbon. Keep it to a touch, not a wash.
 - Black text on honey (high contrast). Honey is never used as text on white; on dark backgrounds honey text is fine.
 - Rose and mahogany appear sparingly (age-group cards, soft glows) to add warmth.
 - Avoid adding any further colours. Blue, aqua, purple and orange from earlier versions are retired.
