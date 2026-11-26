@@ -17,7 +17,9 @@ export const site = {
   freshWindUrl: clean(process.env.NEXT_PUBLIC_FRESH_WIND_URL),
   whatsappNumber: clean(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER)?.replace(/\D/g, "") ?? null,
   contactEmail: clean(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
-  studioLocation: clean(process.env.NEXT_PUBLIC_STUDIO_LOCATION),
+  /** Studio address (confirmed by the owner); the env var can override the display text. */
+  studioLocation: clean(process.env.NEXT_PUBLIC_STUDIO_LOCATION) ?? "4 Lang Street, Rosettenville",
+  address: { streetAddress: "4 Lang Street", addressLocality: "Rosettenville", addressCountry: "ZA" },
   /** Studio and web credit shown in the footer. */
   credit: { text: "Website by Auris Technologies", url: "https://aurisnexus.co.za" },
 } as const;

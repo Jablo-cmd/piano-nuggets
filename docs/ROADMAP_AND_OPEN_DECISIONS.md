@@ -49,7 +49,7 @@ The following details must be confirmed before public launch:
 | Public contact email | TBC | Use only a confirmed address |
 | Instructor identity/team | TBC | Avoid named profiles until confirmed |
 | Instructor biographies and credentials | TBC | Do not fabricate |
-| Exact studio address / public location wording | TBC | Do not publish an assumed address |
+| Studio address | Confirmed: 4 Lang Street, Rosettenville | Postcode and opening hours still TBC |
 | Enquiry recipient and notification route | Built: server route emails the team (`ENQUIRY_TO_EMAIL`); needs a Resend key or SMTP mailbox set in Vercel | Until set, the form shows a prepared WhatsApp/email message instead |
 | Privacy notice and retention period | Draft notice published at `/privacy`; retention wording is generic | Owner to review for POPIA and confirm retention |
 | Supabase project and approval | TBC | Do not assume an existing project is authorised for this product |

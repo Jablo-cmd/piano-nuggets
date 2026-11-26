@@ -43,6 +43,7 @@ export function siteGraph() {
         image: `${site.url}${ogImage.url}`,
         parentOrganization: { "@type": "Organization", name: site.supportedBy, ...(site.freshWindUrl ? { url: site.freshWindUrl } : {}) },
         ...(contactPoint.length ? { contactPoint } : {}),
+        address: { "@type": "PostalAddress", ...site.address },
       },
       { "@type": "WebSite", "@id": websiteId, url: site.url, name: site.name, inLanguage: "en-ZA", publisher: { "@id": orgId } },
     ],

@@ -49,7 +49,7 @@ Do not state "book now" or imply instant booking; the site collects enquiries.
 
 ## 5. Local SEO considerations
 
-- The studio address is **TBC**. Do not publish or mark up an assumed address.
+- The studio address is **4 Lang Street, Rosettenville** (confirmed by the owner). Postcode and opening hours are still TBC; do not invent them.
 - Describe delivery honestly: studio (location TBC), home lessons by location, online nationwide-capable. Do not claim a service area until the owner defines it.
 - Create a Google Business Profile only after name, address/service-area rules and contact details are confirmed; keep NAP (name, address, phone) consistent everywhere.
 - No fabricated reviews, ratings or opening hours.
