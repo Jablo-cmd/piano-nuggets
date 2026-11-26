@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Building2, Globe, Home as HomeIcon, Users, Sparkles, Heart, Layers, Clock } from "lucide-react";
+import { Building2, Globe, Home as HomeIcon, Users, Sparkles, Heart, Layers } from "lucide-react";
 import { Accent } from "@/components/Accent";
 import { ButtonLink } from "@/components/Button";
 import { Photo } from "@/components/Photo";
@@ -67,9 +67,6 @@ export default function HomePage() {
           <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
             <div className="absolute -inset-3 translate-x-4 translate-y-4 rotate-2 rounded-[2.5rem] bg-brand-honey" aria-hidden="true" />
             <Photo src={images.studioRoom.src} alt={images.studioRoom.alt} focus="68% center" className="relative aspect-[4/3.4] w-full !rounded-[2.5rem] shadow-lift" sizes="(min-width:1024px) 48vw, 100vw" priority />
-            <div className="absolute -left-4 bottom-6 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-brand-ink shadow-lift sm:-left-8">
-              <Clock aria-hidden className="h-4 w-4" /> 60-minute lessons
-            </div>
           </div>
         </div>
       </section>
