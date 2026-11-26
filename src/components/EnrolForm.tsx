@@ -6,22 +6,35 @@ import { validateEnquiry, type EnquiryErrors } from "@/lib/enquiry";
 import { submitEnquiry } from "@/lib/submitEnquiry";
 import { site, whatsappLink } from "@/config/site";
 
-function Field({ id, label, hint, error, children }: { id: string; label: string; hint?: string; error?: string; children: ReactNode }) {
+function Field({ id, label, hint, error, group = false, children }: { id: string; label: string; hint?: string; error?: string; group?: boolean; children: ReactNode }) {
+  const hintEl = hint ? <p id={`${id}-hint`} className="mb-1.5 text-sm text-brand-ink/65">{hint}</p> : null;
+  const errorEl = error ? <p id={`${id}-error`} className="field-error" role="alert">{error}</p> : null;
+  if (group) {
+    // A set of radio buttons is a group, so it gets a fieldset and legend rather than a label pointing at nothing.
+    return (
+      <fieldset className="m-0 min-w-0 border-0 p-0" aria-describedby={[hint ? `${id}-hint` : "", error ? `${id}-error` : ""].filter(Boolean).join(" ") || undefined}>
+        <legend className="mb-1.5 block p-0 font-semibold">{label}</legend>
+        {hintEl}
+        {children}
+        {errorEl}
+      </fieldset>
+    );
+  }
   return (
     <div>
       <label htmlFor={id} className="mb-1.5 block font-semibold">{label}</label>
-      {hint && <p id={`${id}-hint`} className="mb-1.5 text-sm text-brand-ink/65">{hint}</p>}
+      {hintEl}
       {children}
-      {error && <p id={`${id}-error`} className="field-error" role="alert">{error}</p>}
+      {errorEl}
     </div>
   );
 }
 
 const describe = (id: string, hint: boolean, error?: string) => [hint ? `${id}-hint` : "", error ? `${id}-error` : ""].filter(Boolean).join(" ") || undefined;
 
-function Radio({ name, options, error }: { name: string; options: [string, string][]; error?: string }) {
+function Radio({ name, options }: { name: string; options: [string, string][] }) {
   return (
-    <div role="radiogroup" aria-describedby={error ? `${name}-error` : undefined} aria-invalid={!!error} className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2">
       {options.map(([v, l]) => (
         <label key={v} className="cursor-pointer">
           <input type="radio" name={name} value={v} className="peer sr-only" />
@@ -95,16 +108,16 @@ export function EnrolForm() {
       <fieldset className="space-y-5">
         <legend className="mb-3 font-display text-xl font-extrabold">About the learner</legend>
         <Field id="learnerName" label="Learner's full name" error={e.learnerName}>
-          <input id="learnerName" name="learnerName" autoComplete="off" className="field-input" aria-invalid={!!e.learnerName} aria-describedby={describe("learnerName", false, e.learnerName)} />
+          <input id="learnerName" name="learnerName" type="text" autoComplete="off" className="field-input" aria-invalid={!!e.learnerName} aria-describedby={describe("learnerName", false, e.learnerName)} />
         </Field>
         <Field id="age" label="Learner's age" hint="We only need age, not a full date of birth." error={e.age}>
           <input id="age" name="age" type="number" inputMode="numeric" min={3} max={110} className="field-input max-w-[10rem]" onChange={(ev) => setAge(ev.target.value === "" ? null : Number(ev.target.value))} aria-invalid={!!e.age} aria-describedby={describe("age", true, e.age)} />
         </Field>
-        <Field id="experience" label="Previous piano experience" error={e.experience}>
-          <Radio name="experience" error={e.experience} options={[["beginner", "Complete beginner"], ["some", "Some experience"], ["returning", "Returning player"]]} />
+        <Field group id="experience" label="Previous piano experience" error={e.experience}>
+          <Radio name="experience" options={[["beginner", "Complete beginner"], ["some", "Some experience"], ["returning", "Returning player"]]} />
         </Field>
-        <Field id="instrument" label="Instrument available to the learner" error={e.instrument}>
-          <Radio name="instrument" error={e.instrument} options={[["piano", "Piano"], ["keyboard", "Keyboard"], ["none", "None yet"], ["other", "Other"]]} />
+        <Field group id="instrument" label="Instrument available to the learner" error={e.instrument}>
+          <Radio name="instrument" options={[["piano", "Piano"], ["keyboard", "Keyboard"], ["none", "None yet"], ["other", "Other"]]} />
         </Field>
       </fieldset>
 
@@ -113,7 +126,7 @@ export function EnrolForm() {
           <legend className="px-2 font-display text-xl font-extrabold">Parent or guardian</legend>
           <p className="text-sm">Learners under 18 must be enrolled by, or with the oversight of, a parent or legal guardian.</p>
           <Field id="guardianName" label="Parent or guardian's full name" error={e.guardianName}>
-            <input id="guardianName" name="guardianName" className="field-input" aria-invalid={!!e.guardianName} aria-describedby={describe("guardianName", false, e.guardianName)} />
+            <input id="guardianName" name="guardianName" type="text" className="field-input" aria-invalid={!!e.guardianName} aria-describedby={describe("guardianName", false, e.guardianName)} />
           </Field>
           <Field id="guardianPhone" label="Parent or guardian's contact number" error={e.guardianPhone}>
             <input id="guardianPhone" name="guardianPhone" type="tel" autoComplete="off" className="field-input" aria-invalid={!!e.guardianPhone} aria-describedby={describe("guardianPhone", false, e.guardianPhone)} />
@@ -140,8 +153,8 @@ export function EnrolForm() {
 
       <fieldset className="space-y-5">
         <legend className="mb-3 font-display text-xl font-extrabold">Lesson preferences</legend>
-        <Field id="format" label="Preferred lesson format" error={e.format}>
-          <div role="radiogroup" className="flex flex-wrap gap-2" onChange={(ev) => setFormat((ev.target as HTMLInputElement).value)}>
+        <Field group id="format" label="Preferred lesson format" error={e.format}>
+          <div className="flex flex-wrap gap-2" onChange={(ev) => setFormat((ev.target as HTMLInputElement).value)}>
             {([["studio", "At the studio"], ["home", "At home"], ["online", "Online"]] as const).map(([v, l]) => (
               <label key={v} className="cursor-pointer">
                 <input type="radio" name="format" value={v} className="peer sr-only" />
@@ -152,21 +165,21 @@ export function EnrolForm() {
         </Field>
         {format === "home" && (
           <Field id="suburb" label="Home suburb or area" hint="Travel charges depend on location. We only need your general area for now." error={e.suburb}>
-            <input id="suburb" name="suburb" className="field-input" aria-invalid={!!e.suburb} aria-describedby={describe("suburb", true, e.suburb)} />
+            <input id="suburb" name="suburb" type="text" className="field-input" aria-invalid={!!e.suburb} aria-describedby={describe("suburb", true, e.suburb)} />
           </Field>
         )}
         {format === "online" && (
-          <Field id="platform" label="Preferred online platform (optional)">
+          <Field group id="platform" label="Preferred online platform (optional)">
             <Radio name="platform" options={[["zoom", "Zoom (preferred)"], ["other", "Another platform"], ["unsure", "Not sure"]]} />
           </Field>
         )}
-        <Field id="lessonType" label="Individual or group lessons" error={e.lessonType}>
-          <Radio name="lessonType" error={e.lessonType} options={[["individual", "Individual"], ["group", "Group"]]} />
+        <Field group id="lessonType" label="Individual or group lessons" error={e.lessonType}>
+          <Radio name="lessonType" options={[["individual", "Individual"], ["group", "Group"]]} />
         </Field>
-        <Field id="frequency" label="Preferred lesson frequency" hint="Lessons are available up to twice a week." error={e.frequency}>
-          <Radio name="frequency" error={e.frequency} options={[["once", "Once a week"], ["twice", "Twice a week"]]} />
+        <Field group id="frequency" label="Preferred lesson frequency" hint="Lessons are available up to twice a week." error={e.frequency}>
+          <Radio name="frequency" options={[["once", "Once a week"], ["twice", "Twice a week"]]} />
         </Field>
-        <Field id="materials" label="Instructional material pack (optional)" hint="An optional R850 once-off pack.">
+        <Field group id="materials" label="Instructional material pack (optional)" hint="An optional R850 once-off pack.">
           <Radio name="materials" options={[["yes", "Interested"], ["no", "Not interested"], ["more-info", "Tell me more"]]} />
         </Field>
       </fieldset>

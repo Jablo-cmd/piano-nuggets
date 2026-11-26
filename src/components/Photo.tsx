@@ -9,9 +9,9 @@ import { PianoKeys } from "./PianoKeys";
 export function Photo({ src, alt, className = "", priority = false, sizes = "(min-width:1024px) 50vw, 100vw", focus = "center" }: { src?: string; alt: string; className?: string; priority?: boolean; sizes?: string; focus?: string }) {
   if (src) {
     return (
-      <div className={`relative overflow-hidden rounded-xl3 ${className}`}>
+      <figure className={`relative m-0 overflow-hidden rounded-xl3 ${className}`}>
         <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" style={{ objectPosition: focus }} priority={priority} />
-      </div>
+      </figure>
     );
   }
   return (

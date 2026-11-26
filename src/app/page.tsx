@@ -65,7 +65,7 @@ export default function HomePage() {
           </div>
 
           <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
-            <Photo src={images.studioRoom.src} alt={images.studioRoom.alt} focus="60% center" className="relative aspect-[4/3] w-full !rounded-[2.5rem] shadow-lift" sizes="(min-width:1024px) 48vw, 100vw" priority />
+            <Photo src={images.studioRoom.src} alt={images.studioRoom.alt} focus="60% center" className="aspect-[4/3] w-full !rounded-[2.5rem] shadow-lift" sizes="(min-width:1024px) 48vw, 100vw" priority />
           </div>
         </div>
       </section>
@@ -81,15 +81,15 @@ export default function HomePage() {
             <FreshWindCredit className="inline-block rounded-full bg-white px-5 py-2.5 text-base shadow-soft" />
           </div>
           <div className="relative">
-            <Photo src={images.theoryGroup.src} alt={images.theoryGroup.alt} className="relative aspect-[16/9] w-full shadow-lift" sizes="(min-width:768px) 50vw, 100vw" />
+            <Photo src={images.theoryGroup.src} alt={images.theoryGroup.alt} className="aspect-[16/9] w-full shadow-lift" sizes="(min-width:768px) 50vw, 100vw" />
           </div>
         </Reveal>
       </Section>
 
       <Section id="lessons" title={<>Piano and keyboard <Accent>lessons</Accent></>} intro="Four connected learning areas build musical understanding, practical ability and confidence.">
-        <div className="grid gap-5 sm:grid-cols-2">
+        <ul className="grid gap-5 sm:grid-cols-2">
           {learningAreas.map((a, i) => (
-            <Reveal key={a.title} delay={i * 0.05}>
+            <Reveal as="li" key={a.title} delay={i * 0.05}>
               <article className="group relative h-full overflow-hidden rounded-[2rem] border-2 border-brand-ink bg-white p-7 transition duration-300 hover:-translate-y-1 hover:bg-brand-honey sm:p-9">
                 <span className="absolute right-6 top-4 font-display text-7xl font-extrabold leading-none tracking-[-0.06em] text-brand-ink/10 transition group-hover:text-brand-ink/20" aria-hidden="true">0{i + 1}</span>
                 <span className="grid h-14 w-14 place-items-center rounded-2xl bg-brand-ink text-brand-honey transition group-hover:bg-white group-hover:text-brand-ink"><LearningAreaIcon name={a.icon} /></span>
@@ -98,7 +98,7 @@ export default function HomePage() {
               </article>
             </Reveal>
           ))}
-        </div>
+        </ul>
         <div className="mt-10"><ButtonLink href="/piano-lessons" variant="secondary" arrow>More about the lessons</ButtonLink>
           <p className="mt-5 text-brand-ink/75">New to piano? See <Link className="link" href="/beginner-piano-lessons">beginner piano lessons</Link>, or <Link className="link" href="/online-piano-lessons">learn online</Link>.</p></div>
       </Section>
@@ -108,9 +108,9 @@ export default function HomePage() {
       </Section>
 
       <Section id="formats" title={<>Learn the way that <Accent>suits you</Accent></>} intro="Individual or group lessons, in the studio, at home or online.">
-        <div className="grid gap-5 md:grid-cols-3">
+        <ul className="grid gap-5 md:grid-cols-3">
           {formats.map((f, i) => (
-            <Reveal key={f.title} delay={i * 0.05}>
+            <Reveal as="li" key={f.title} delay={i * 0.05}>
               <div className="card h-full !rounded-[2rem] !p-8">
                 <span className="grid h-14 w-14 place-items-center rounded-full bg-brand-honey"><f.icon aria-hidden className="h-7 w-7" /></span>
                 <h3 className="mt-6 text-2xl font-extrabold">{f.title}</h3>
@@ -118,7 +118,7 @@ export default function HomePage() {
               </div>
             </Reveal>
           ))}
-        </div>
+        </ul>
         <p className="mt-8 text-brand-ink/75">All lessons are 60 minutes. <Link className="link" href="/how-it-works">See how it works</Link></p>
       </Section>
 
@@ -134,20 +134,20 @@ export default function HomePage() {
       </Section>
 
       <Section id="why" title={<>Why choose <Accent>Piano Nuggets</Accent></>}>
-        <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
+        <ul className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
           {why.map((w, i) => (
-            <Reveal key={w.title} delay={i * 0.04} className="flex gap-5">
+            <Reveal as="li" key={w.title} delay={i * 0.04} className="flex gap-5">
               <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-brand-honey"><w.icon aria-hidden className="h-7 w-7" /></span>
               <div><h3 className="text-xl font-extrabold">{w.title}</h3><p className="mt-2 text-brand-ink/75">{w.text}</p></div>
             </Reveal>
           ))}
-        </div>
+        </ul>
       </Section>
 
       <Section id="ages" tone="mist" title={<>Lessons for <Accent>every age</Accent></>} intro="Piano Nuggets is for children, teenagers and adults, from first-time beginners to returning players.">
-        <div className="grid gap-5 md:grid-cols-3">
+        <ul className="grid gap-5 md:grid-cols-3">
           {ages.map((a, i) => (
-            <Reveal key={a.title} delay={i * 0.05}>
+            <Reveal as="li" key={a.title} delay={i * 0.05}>
               <Link href={a.href} className="group block h-full rounded-[2rem] bg-brand-plum p-8 text-white transition duration-300 hover:-translate-y-1">
                 <span className="font-display text-6xl font-extrabold leading-none text-brand-rose">0{i + 1}</span>
                 <h3 className="mt-6 text-2xl font-extrabold">{a.title}</h3>
@@ -156,7 +156,7 @@ export default function HomePage() {
               </Link>
             </Reveal>
           ))}
-        </div>
+        </ul>
       </Section>
 
       <EnrolCta />

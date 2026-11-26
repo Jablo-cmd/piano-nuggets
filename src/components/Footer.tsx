@@ -45,15 +45,17 @@ export function Footer() {
             ))}
           </ul>
         </nav>
-        <div className="space-y-2 text-sm text-white/85">
+        <div className="text-sm text-white/85">
           <h2 className="font-display text-base font-bold text-white">Get in touch</h2>
+          <address className="mt-2 space-y-2 not-italic">
           {wa && whatsappDisplay ? <p>WhatsApp: <a className="inline-flex min-h-11 items-center font-semibold underline underline-offset-4 hover:text-brand-honey" href={wa}>{whatsappDisplay}</a></p> : <p>WhatsApp: to be confirmed</p>}
           {site.contactEmail ? <p>Email: <a className="inline-flex min-h-11 items-center font-semibold underline underline-offset-4 hover:text-brand-honey" href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a></p> : <p>Email: to be confirmed</p>}
           <p><Link className="inline-flex min-h-11 items-center underline underline-offset-4" href="/contact">Contact page</Link></p>
+          </address>
         </div>
       </div>
       <div className="border-t border-white/15 py-5 text-center text-xs text-white/60">
-        © {new Date().getFullYear()} Piano Nuggets. All prices in South African Rand (ZAR).
+        © {new Date().getFullYear()} Piano Nuggets. All prices in South African Rand (<abbr title="South African Rand">ZAR</abbr>).
       </div>
     </footer>
   );

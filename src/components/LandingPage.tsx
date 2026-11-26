@@ -49,9 +49,9 @@ export function LandingPage({ l }: { l: Landing }) {
       </Section>
 
       <Section id="learn" tone="mist" title={l.learnTitle}>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {l.learn.map((x, i) => (
-            <Reveal key={x.title} delay={i * 0.04}>
+            <Reveal as="li" key={x.title} delay={i * 0.04}>
               <article className="card h-full !rounded-[2rem]">
                 <span className="font-display text-4xl font-extrabold text-brand-honey">0{i + 1}</span>
                 <h3 className="mt-3 text-xl font-extrabold">{x.title}</h3>
@@ -59,7 +59,7 @@ export function LandingPage({ l }: { l: Landing }) {
               </article>
             </Reveal>
           ))}
-        </div>
+        </ul>
       </Section>
 
       <Section id="how" title={l.howTitle}>
@@ -84,17 +84,17 @@ export function LandingPage({ l }: { l: Landing }) {
       </Section>
 
       <Section id="related" title="More ways to learn">
-        <div className="grid gap-4 md:grid-cols-3">
+        <ul className="grid gap-4 md:grid-cols-3">
           {l.related.map((path) => {
             const r = landingByPath(path);
             return (
-              <Link key={path} href={path} className="group flex items-center justify-between gap-3 rounded-[1.5rem] border-2 border-brand-ink bg-white p-5 font-bold transition hover:-translate-y-1 hover:bg-brand-honey">
+              <li key={path}><Link href={path} className="group flex items-center justify-between gap-3 rounded-[1.5rem] border-2 border-brand-ink bg-white p-5 font-bold transition hover:-translate-y-1 hover:bg-brand-honey">
                 {r.navName}
                 <ArrowRight aria-hidden className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
+              </Link></li>
             );
           })}
-        </div>
+        </ul>
       </Section>
       <EnrolCta />
     </>

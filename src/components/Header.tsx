@@ -21,10 +21,9 @@ export function Header() {
     const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
     return (
       <Link
-        key={href}
         href={href}
         aria-current={active ? "page" : undefined}
-        className={`px-3 py-2 text-[15px] font-semibold underline-offset-[10px] decoration-[3px] transition-colors ${active ? "text-brand-ink underline decoration-brand-honey" : "text-brand-ink/75 hover:text-brand-ink hover:underline hover:decoration-brand-honey/70"}`}
+        className={`inline-flex min-h-11 items-center px-3 py-2 text-[15px] font-semibold underline-offset-[10px] decoration-[3px] transition-colors ${active ? "text-brand-ink underline decoration-brand-honey" : "text-brand-ink/75 hover:text-brand-ink hover:underline hover:decoration-brand-honey/70"}`}
       >
         {label}
       </Link>
@@ -35,8 +34,10 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-brand-ink/10 bg-white">
       <div className="container-page flex h-[72px] items-center justify-between gap-4">
         <Logo />
-        <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
-          {nav.map((n) => link(n.href, n.label))}
+        <nav aria-label="Main" className="hidden lg:block">
+          <ul className="flex items-center gap-1">
+            {nav.map((n) => <li key={n.href}>{link(n.href, n.label)}</li>)}
+          </ul>
         </nav>
         <div className="flex items-center gap-2">
           <ButtonLink href="/enrol" arrow className="hidden !min-h-11 !px-5 !py-2 sm:inline-flex">Enrol Now</ButtonLink>
@@ -54,9 +55,11 @@ export function Header() {
       </div>
       {open && (
         <nav id="mobile-menu" aria-label="Mobile" className="border-t border-brand-ink/10 bg-white lg:hidden">
-          <div className="container-page flex flex-col gap-1 py-4">
-            {nav.map((n) => link(n.href, n.label))}
-            <ButtonLink href="/enrol" className="mt-3">Enrol Now</ButtonLink>
+          <div className="container-page py-4">
+            <ul className="flex flex-col gap-1">
+              {nav.map((n) => <li key={n.href}>{link(n.href, n.label)}</li>)}
+            </ul>
+            <ButtonLink href="/enrol" className="mt-3 w-full">Enrol Now</ButtonLink>
           </div>
         </nav>
       )}

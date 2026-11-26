@@ -34,24 +34,24 @@ export default function PianoLessonsPage() {
           <Reveal><Photo src={images.handsOn.src} alt={images.handsOn.alt} className="aspect-[16/9] w-full shadow-soft" sizes="(min-width:768px) 50vw, 100vw" /></Reveal>
           <Reveal delay={0.05}><Photo src={images.theoryOneToOne.src} alt={images.theoryOneToOne.alt} className="aspect-[16/9] w-full shadow-soft" sizes="(min-width:768px) 50vw, 100vw" /></Reveal>
         </div>
-        <div className="grid gap-5 md:grid-cols-2">
+        <ul className="grid gap-5 md:grid-cols-2">
           {learningAreas.map((a, i) => (
-            <Reveal key={a.title} delay={i * 0.05} className="card flex h-full gap-5">
+            <Reveal as="li" key={a.title} delay={i * 0.05} className="card flex h-full gap-5">
               <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-brand-honey"><LearningAreaIcon name={a.icon} /></span>
               <div><h3 className="text-xl font-bold">{a.title}</h3><p className="mt-2 text-brand-ink/75">{a.text}</p></div>
             </Reveal>
           ))}
-        </div>
+        </ul>
       </Section>
       <Section id="find" title={<>Find the lessons <Accent>for you</Accent></>} intro="Pick the page that sounds most like you for a closer look.">
-        <div className="grid gap-4 sm:grid-cols-2">
+        <ul className="grid gap-4 sm:grid-cols-2">
           {landings.map((l) => (
-            <Link key={l.path} href={l.path} className="group flex items-center justify-between gap-3 rounded-[1.5rem] border-2 border-brand-ink bg-white p-5 text-lg font-bold transition hover:-translate-y-1 hover:bg-brand-honey">
+            <li key={l.path}><Link href={l.path} className="group flex items-center justify-between gap-3 rounded-[1.5rem] border-2 border-brand-ink bg-white p-5 text-lg font-bold transition hover:-translate-y-1 hover:bg-brand-honey">
               {l.navName}
               <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
-            </Link>
+            </Link></li>
           ))}
-        </div>
+        </ul>
       </Section>
       <Section id="who" tone="mist" title={<>Who the lessons <Accent>are for</Accent></>}>
         <ul className="grid gap-4 text-lg md:grid-cols-3">

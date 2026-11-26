@@ -5,7 +5,7 @@ import { Reveal } from "./Reveal";
 function Amount({ value, unit }: { value: number; unit: string }) {
   return (
     <p>
-      <span className="font-display text-5xl font-extrabold tabular-nums tracking-[-0.04em]">{fmt(value)}</span>
+      <data value={value} className="font-display text-5xl font-extrabold tabular-nums tracking-[-0.04em]">{fmt(value)}</data>
       <span className="mt-1 block text-sm font-semibold text-brand-ink/70">{unit}</span>
     </p>
   );
@@ -18,33 +18,33 @@ function Badge({ children, tone = "mist" }: { children: React.ReactNode; tone?: 
 
 export function IndividualPricing() {
   return (
-    <div className="grid gap-5 md:grid-cols-3">
-      <Reveal className="card">
+    <ul className="grid gap-5 md:grid-cols-3">
+      <Reveal as="li" className="card">
         <Badge>Single lesson</Badge>
         <h3 className="mt-3 text-xl font-bold">Individual lesson</h3>
         <div className="mt-4"><Amount value={pricing.individual.amount} unit={pricing.individual.unit} /></div>
         <p className="mt-4 text-sm text-brand-ink/75">One-to-one, 60 minutes.</p>
       </Reveal>
-      <Reveal delay={0.05} className="card">
+      <Reveal as="li" delay={0.05} className="card">
         <Badge tone="yellow">Once weekly</Badge>
         <h3 className="mt-3 text-xl font-bold">4 lessons a month</h3>
         <div className="mt-4"><Amount value={pricing.onceWeekly.amount} unit={pricing.onceWeekly.unit} /></div>
         <p className="mt-4 text-sm text-brand-ink/75">Four 60-minute lessons in a four-week month.</p>
       </Reveal>
-      <Reveal delay={0.1} className="card">
+      <Reveal as="li" delay={0.1} className="card">
         <Badge tone="yellow">Twice weekly</Badge>
         <h3 className="mt-3 text-xl font-bold">8 lessons a month</h3>
         <div className="mt-4"><Amount value={pricing.twiceWeekly.amount} unit={pricing.twiceWeekly.unit} /></div>
         <p className="mt-4 text-sm text-brand-ink/75">Eight 60-minute lessons in a four-week month. Twice weekly is the maximum frequency.</p>
       </Reveal>
-    </div>
+    </ul>
   );
 }
 
 export function GroupPricing() {
   return (
-    <div className="grid gap-5 md:grid-cols-2">
-      <Reveal className="card border-2 border-brand-ink">
+    <ul className="grid gap-5 md:grid-cols-2">
+      <Reveal as="li" className="card border-2 border-brand-ink">
         <Badge tone="ink">Studio group · whole-group price</Badge>
         <h3 className="mt-3 text-xl font-bold">Studio group lesson</h3>
         <div className="mt-4"><Amount value={pricing.studioGroup.amount} unit="per 60-minute session" /></div>
@@ -52,36 +52,36 @@ export function GroupPricing() {
           This is the total for the whole group of {pricing.studioGroup.size}. It is not a per-student fee.
         </p>
       </Reveal>
-      <Reveal delay={0.05} className="card border-2 border-brand-honey">
+      <Reveal as="li" delay={0.05} className="card border-2 border-brand-honey">
         <Badge tone="yellow">Online group · per-student price</Badge>
         <h3 className="mt-3 text-xl font-bold">Online group lesson</h3>
         <div className="mt-4"><Amount value={pricing.onlineGroup.amount} unit="per student, per 60-minute lesson" /></div>
         <p className="mt-4 rounded-xl bg-brand-mist p-3 text-sm font-semibold">Each student pays this amount for each lesson they attend.</p>
       </Reveal>
-    </div>
+    </ul>
   );
 }
 
 export function ExtrasPricing() {
   return (
-    <div className="grid gap-5 md:grid-cols-3">
-      <Reveal className="card">
+    <ul className="grid gap-5 md:grid-cols-3">
+      <Reveal as="li" className="card">
         <Badge>Registration</Badge>
         <div className="mt-4"><Amount value={pricing.registration.amount} unit="once-off registration fee" /></div>
       </Reveal>
-      <Reveal delay={0.05} className="card">
+      <Reveal as="li" delay={0.05} className="card">
         <Badge>Optional</Badge>
         <h3 className="mt-3 text-lg font-bold">Instructional material pack</h3>
         <div className="mt-3"><Amount value={pricing.materials.amount} unit="once-off · optional" /></div>
         <p className="mt-3 text-sm text-brand-ink/75">Learning resources covering theory, harmony, technique and course content. Purchase is your choice.</p>
       </Reveal>
-      <Reveal delay={0.1} className="card">
+      <Reveal as="li" delay={0.1} className="card">
         <Badge>Home lessons</Badge>
         <h3 className="mt-3 text-lg font-bold">Instructor comes to you</h3>
         <p className="mt-3 flex gap-2 text-sm text-brand-ink/80"><Home aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-brand-ink" />
           Available on request. Additional travel charges depend on your location. Enquire for a quotation.</p>
       </Reveal>
-    </div>
+    </ul>
   );
 }
 

@@ -1,13 +1,13 @@
 "use client";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { createElement, useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
  * Subtle rise-on-scroll for below-the-fold blocks.
  * Content is never hidden or offset in the server HTML or without JS, and the
  * effect is skipped entirely when the user prefers reduced motion.
  */
-export function Reveal({ children, delay = 0, className = "" }: { children: ReactNode; delay?: number; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
+export function Reveal({ children, delay = 0, className = "", as = "div" }: { children: ReactNode; delay?: number; className?: string; as?: "div" | "li" }) {
+  const ref = useRef<HTMLElement>(null);
   const [state, setState] = useState<"idle" | "armed" | "shown">("idle");
 
   useEffect(() => {
@@ -28,13 +28,6 @@ export function Reveal({ children, delay = 0, className = "" }: { children: Reac
     return () => io.disconnect();
   }, []);
 
-  return (
-    <div
-      ref={ref}
-      className={className}
-      style={state === "armed" ? { transform: "translateY(18px)" } : state === "shown" ? { transition: `transform 500ms ease-out ${delay}s` } : undefined}
-    >
-      {children}
-    </div>
-  );
+  const style = state === "armed" ? { transform: "translateY(18px)" } : state === "shown" ? { transition: `transform 500ms ease-out ${delay}s` } : undefined;
+  return createElement(as, { ref, className, style }, children);
 }

@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="sr-only z-50 rounded-full bg-brand-ink px-4 py-2 text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to content</a>
         <JsonLd data={siteGraph()} />
         <Header />
-        <main id="main">{children}</main>
+        <main id="main" tabIndex={-1} className="outline-none">{children}</main>
         <Footer />
         <WhatsAppButton />
       </body>
