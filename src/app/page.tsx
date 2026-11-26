@@ -49,7 +49,7 @@ export default function HomePage() {
           <div>
             <p className="eyebrow"><Sparkles aria-hidden className="h-4 w-4" /> Piano &amp; keyboard lessons</p>
             <h1 className="mt-6 text-[3.25rem] font-extrabold leading-[0.98] sm:text-7xl lg:text-[5.5rem]">
-              <Typewriter delay={200} speed={42} segments={[{ text: "Every great musician starts " }, { text: "somewhere.", accent: true }]} />
+              <Typewriter delay={400} speed={65} segments={[{ text: "Every great musician starts " }, { text: "somewhere.", accent: true }]} />
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/75 sm:text-xl">
               Discover the joy of music through piano and keyboard lessons designed to inspire, teach and develop confident musicians.
