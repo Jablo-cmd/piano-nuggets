@@ -32,7 +32,7 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-brand-ink/10 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-brand-ink/10 bg-white">
       <div className="container-page flex h-[72px] items-center justify-between gap-4">
         <Logo />
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
