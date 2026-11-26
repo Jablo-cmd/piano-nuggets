@@ -7,13 +7,13 @@ const config: Config = {
       colors: {
         brand: {
           white: "#FFFFFF",
-          ink: "#0B1635", // midnight navy (matches the logo): text and structure
-          mist: "#F1F8FB", // soft cool background
-          teal: "#9EDCEB", // aqua: shapes, icon tiles, highlights, bands
-          cyan: "#019FCB", // logo cyan: large display accents and underlines only
-          "teal-deep": "#00718F", // text/links on white, mist and lilac (WCAG AA)
-          peach: "#FFB59A", // warm accent for primary buttons
-          lilac: "#E7E4FA", // gentle secondary background
+          ink: "#170D0B", // espresso black (piano and walls): text and dark sections
+          plum: "#3A2220", // mahogany: richer dark cards
+          mist: "#FBF4E8", // warm cream: soft backgrounds
+          honey: "#E9A71C", // golden oak: the main accent (buttons, highlights, ribbon)
+          "honey-soft": "#F8E4B6", // pale oak tint
+          oak: "#B8701F", // deeper oak for hovers and small detail
+          rose: "#C98B7E", // studio carpet: a rare soft secondary touch
         },
       },
       fontFamily: {

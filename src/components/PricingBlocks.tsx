@@ -11,8 +11,8 @@ function Amount({ value, unit }: { value: number; unit: string }) {
   );
 }
 
-function Badge({ children, tone = "mist" }: { children: React.ReactNode; tone?: "mist" | "teal" | "ink" }) {
-  const t = { mist: "bg-brand-mist text-brand-ink", teal: "bg-brand-teal text-brand-ink", ink: "bg-brand-ink text-white" }[tone];
+function Badge({ children, tone = "mist" }: { children: React.ReactNode; tone?: "mist" | "yellow" | "ink" }) {
+  const t = { mist: "bg-brand-mist text-brand-ink", yellow: "bg-brand-honey text-brand-ink", ink: "bg-brand-ink text-white" }[tone];
   return <span className={`inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide ${t}`}>{children}</span>;
 }
 
@@ -26,13 +26,13 @@ export function IndividualPricing() {
         <p className="mt-4 text-sm text-brand-ink/75">One-to-one, 60 minutes.</p>
       </Reveal>
       <Reveal delay={0.05} className="card">
-        <Badge tone="teal">Once weekly</Badge>
+        <Badge tone="yellow">Once weekly</Badge>
         <h3 className="mt-3 text-xl font-bold">4 lessons a month</h3>
         <div className="mt-4"><Amount value={pricing.onceWeekly.amount} unit={pricing.onceWeekly.unit} /></div>
         <p className="mt-4 text-sm text-brand-ink/75">Four 60-minute lessons in a four-week month.</p>
       </Reveal>
       <Reveal delay={0.1} className="card">
-        <Badge tone="teal">Twice weekly</Badge>
+        <Badge tone="yellow">Twice weekly</Badge>
         <h3 className="mt-3 text-xl font-bold">8 lessons a month</h3>
         <div className="mt-4"><Amount value={pricing.twiceWeekly.amount} unit={pricing.twiceWeekly.unit} /></div>
         <p className="mt-4 text-sm text-brand-ink/75">Eight 60-minute lessons in a four-week month. Twice weekly is the maximum frequency.</p>
@@ -52,8 +52,8 @@ export function GroupPricing() {
           This is the total for the whole group of {pricing.studioGroup.size}. It is not a per-student fee.
         </p>
       </Reveal>
-      <Reveal delay={0.05} className="card border-2 border-brand-teal">
-        <Badge tone="teal">Online group · per-student price</Badge>
+      <Reveal delay={0.05} className="card border-2 border-brand-honey">
+        <Badge tone="yellow">Online group · per-student price</Badge>
         <h3 className="mt-3 text-xl font-bold">Online group lesson</h3>
         <div className="mt-4"><Amount value={pricing.onlineGroup.amount} unit="per student, per 60-minute lesson" /></div>
         <p className="mt-4 rounded-xl bg-brand-mist p-3 text-sm font-semibold">Each student pays this amount for each lesson they attend.</p>
@@ -78,7 +78,7 @@ export function ExtrasPricing() {
       <Reveal delay={0.1} className="card">
         <Badge>Home lessons</Badge>
         <h3 className="mt-3 text-lg font-bold">Instructor comes to you</h3>
-        <p className="mt-3 flex gap-2 text-sm text-brand-ink/80"><Home aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-brand-teal-deep" />
+        <p className="mt-3 flex gap-2 text-sm text-brand-ink/80"><Home aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-brand-ink" />
           Available on request. Additional travel charges depend on your location. Enquire for a quotation.</p>
       </Reveal>
     </div>

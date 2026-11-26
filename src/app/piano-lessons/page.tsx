@@ -32,13 +32,13 @@ export default function PianoLessonsPage() {
         <div className="grid gap-5 md:grid-cols-2">
           {learningAreas.map((a, i) => (
             <Reveal key={a.title} delay={i * 0.05} className="card flex h-full gap-5">
-              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-brand-teal"><LearningAreaIcon name={a.icon} /></span>
+              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-brand-honey"><LearningAreaIcon name={a.icon} /></span>
               <div><h3 className="text-xl font-bold">{a.title}</h3><p className="mt-2 text-brand-ink/75">{a.text}</p></div>
             </Reveal>
           ))}
         </div>
       </Section>
-      <Section id="who" tone="lilac" title={<>Who the lessons <Accent>are for</Accent></>}>
+      <Section id="who" tone="dark" title={<>Who the lessons <Accent>are for</Accent></>}>
         <ul className="grid gap-4 text-lg md:grid-cols-3">
           <li className="card">Children beginning their musical journey, with a parent or guardian handling enrolment.</li>
           <li className="card">Teenagers who want to build practical skill and understanding.</li>

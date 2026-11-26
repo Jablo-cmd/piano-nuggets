@@ -39,7 +39,7 @@ export function Header() {
           {nav.map((n) => link(n.href, n.label))}
         </nav>
         <div className="flex items-center gap-2">
-          <ButtonLink href="/enrol" className="hidden !min-h-11 !px-5 !py-2 sm:inline-flex">Enrol Now</ButtonLink>
+          <ButtonLink href="/enrol" arrow className="hidden !min-h-11 !px-5 !py-2 sm:inline-flex">Enrol Now</ButtonLink>
           <button
             type="button"
             className="grid h-11 w-11 place-items-center rounded-full border border-brand-ink/20 lg:hidden"

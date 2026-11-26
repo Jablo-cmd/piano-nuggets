@@ -28,9 +28,9 @@ export default function HowItWorksPage() {
       </PageHero>
       <Section id="formats" title={<>Three ways <Accent>to learn</Accent></>}>
         <div className="grid gap-5 md:grid-cols-3">
-          <Reveal className="card h-full"><Building2 aria-hidden className="h-8 w-8 text-brand-teal-deep" /><h3 className="mt-4 text-xl font-bold">Studio lessons</h3><p className="mt-2 text-brand-ink/75">Attend the Fresh Wind Music studio. Public location details are to be confirmed.</p></Reveal>
-          <Reveal delay={0.05} className="card h-full"><HomeIcon aria-hidden className="h-8 w-8 text-brand-teal-deep" /><h3 className="mt-4 text-xl font-bold">Home lessons</h3><p className="mt-2 text-brand-ink/75">An instructor can be deployed to your residence, subject to location. Additional travel charges depend on where you live; request a quotation.</p></Reveal>
-          <Reveal delay={0.1} className="card h-full"><Globe aria-hidden className="h-8 w-8 text-brand-teal-deep" /><h3 className="mt-4 text-xl font-bold">Online lessons</h3><p className="mt-2 text-brand-ink/75">Zoom is preferred. Another platform can be used if the sound quality is good enough for lessons to run smoothly.</p></Reveal>
+          <Reveal className="card h-full"><Building2 aria-hidden className="h-8 w-8 text-brand-ink" /><h3 className="mt-4 text-xl font-bold">Studio lessons</h3><p className="mt-2 text-brand-ink/75">Attend the Fresh Wind Music studio. Public location details are to be confirmed.</p></Reveal>
+          <Reveal delay={0.05} className="card h-full"><HomeIcon aria-hidden className="h-8 w-8 text-brand-ink" /><h3 className="mt-4 text-xl font-bold">Home lessons</h3><p className="mt-2 text-brand-ink/75">An instructor can be deployed to your residence, subject to location. Additional travel charges depend on where you live; request a quotation.</p></Reveal>
+          <Reveal delay={0.1} className="card h-full"><Globe aria-hidden className="h-8 w-8 text-brand-ink" /><h3 className="mt-4 text-xl font-bold">Online lessons</h3><p className="mt-2 text-brand-ink/75">Zoom is preferred. Another platform can be used if the sound quality is good enough for lessons to run smoothly.</p></Reveal>
         </div>
       </Section>
       <div className="container-page"><Reveal><Photo src={images.handsOn.src} alt={images.handsOn.alt} className="aspect-[21/9] w-full shadow-soft" sizes="(min-width:1152px) 1100px, 100vw" /></Reveal></div>
@@ -42,7 +42,7 @@ export default function HowItWorksPage() {
             "A full-size piano or electronic keyboard is recommended, although any usable keyboard can be used",
             "Adequate audio quality, so your instructor can hear the notes you play",
           ].map((t) => (
-            <li key={t} className="card flex gap-3 !p-5"><Check aria-hidden className="mt-1 h-5 w-5 shrink-0 text-brand-teal-deep" />{t}</li>
+            <li key={t} className="card flex gap-3 !p-5"><Check aria-hidden className="mt-1 h-5 w-5 shrink-0 text-brand-ink" />{t}</li>
           ))}
         </ul>
       </Section>
@@ -51,7 +51,7 @@ export default function HowItWorksPage() {
           {steps.map(([t, d], i) => (
             <Reveal key={t} delay={i * 0.04}>
               <li className="card flex h-full gap-4">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-teal font-display text-lg font-extrabold" aria-hidden="true">{i + 1}</span>
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-honey font-display text-lg font-extrabold" aria-hidden="true">{i + 1}</span>
                 <div><h3 className="text-lg font-bold">{t}</h3><p className="mt-1 text-brand-ink/75">{d}</p></div>
               </li>
             </Reveal>

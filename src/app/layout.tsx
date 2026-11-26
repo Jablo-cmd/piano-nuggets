@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "Piano Nuggets", description: site.description, images: ["/images/piano-lesson-studio.webp"] },
 };
 
-export const viewport: Viewport = { themeColor: "#9EDCEB", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#E9A71C", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

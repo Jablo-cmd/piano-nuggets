@@ -16,4 +16,8 @@ export const images = {
     src: "/images/theory-class-group.webp",
     alt: "An instructor teaches note values at a whiteboard to a group of four learners seated around a table",
   },
+  studioRoom: {
+    src: "/images/studio-grand-piano.webp",
+    alt: "A wood-panelled music studio with a black grand piano, its lid raised, and a green-topped piano bench",
+  },
 } as const;

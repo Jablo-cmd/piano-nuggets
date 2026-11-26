@@ -25,7 +25,7 @@ function Radio({ name, options, error }: { name: string; options: [string, strin
       {options.map(([v, l]) => (
         <label key={v} className="cursor-pointer">
           <input type="radio" name={name} value={v} className="peer sr-only" />
-          <span className="inline-flex min-h-11 items-center rounded-full border border-brand-ink/25 px-5 py-2 font-semibold peer-checked:border-brand-ink peer-checked:bg-brand-teal peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-offset-2">{l}</span>
+          <span className="inline-flex min-h-11 items-center rounded-full border border-brand-ink/25 px-5 py-2 font-semibold peer-checked:border-brand-ink peer-checked:bg-brand-honey peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-offset-2">{l}</span>
         </label>
       ))}
     </div>
@@ -69,7 +69,7 @@ export function EnrolForm() {
   if (status === "received") {
     return (
       <div className="card text-center" role="status">
-        <CheckCircle2 aria-hidden className="mx-auto h-12 w-12 text-brand-teal-deep" />
+        <CheckCircle2 aria-hidden className="mx-auto h-12 w-12 text-brand-ink" />
         <h2 className="mt-3 text-2xl font-extrabold">Thank you, your enquiry has been received</h2>
         <p className="mx-auto mt-3 max-w-xl text-brand-ink/80">Our team will contact you to discuss lesson arrangements. This is an enquiry only: it is not a confirmed booking or guaranteed place.</p>
       </div>
@@ -78,8 +78,8 @@ export function EnrolForm() {
 
   return (
     <form ref={ref} onSubmit={onSubmit} noValidate className="space-y-8" aria-describedby="form-notice">
-      <div id="form-notice" className="flex gap-3 rounded-xl2 border border-brand-teal bg-brand-mist p-5 text-sm sm:text-base">
-        <AlertTriangle aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-brand-teal-deep" />
+      <div id="form-notice" className="flex gap-3 rounded-xl2 border border-brand-honey bg-brand-mist p-5 text-sm sm:text-base">
+        <AlertTriangle aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-brand-ink" />
         <p>
           <strong>Online enquiries are not open yet.</strong> This form is a preview: nothing you type is sent, saved or logged. An enquiry is not a confirmed booking. Please{" "}
           {wa ? <a className="link" href={wa}>message us on WhatsApp</a> : <a className="link" href="/contact">see how to contact us</a>} in the meantime.
@@ -120,7 +120,7 @@ export function EnrolForm() {
           </Field>
           <div>
             <label className="flex items-start gap-3">
-              <input type="checkbox" name="guardianConfirm" className="mt-1 h-5 w-5 accent-[#0B1635]" aria-invalid={!!e.guardianConfirm} />
+              <input type="checkbox" name="guardianConfirm" className="mt-1 h-5 w-5 accent-[#170D0B]" aria-invalid={!!e.guardianConfirm} />
               <span>I am the parent or legal guardian, or I am overseeing this enquiry on their behalf.</span>
             </label>
             {e.guardianConfirm && <p className="field-error" role="alert">{e.guardianConfirm}</p>}
@@ -145,7 +145,7 @@ export function EnrolForm() {
             {([["studio", "At the studio"], ["home", "At home"], ["online", "Online"]] as const).map(([v, l]) => (
               <label key={v} className="cursor-pointer">
                 <input type="radio" name="format" value={v} className="peer sr-only" />
-                <span className="inline-flex min-h-11 items-center rounded-full border border-brand-ink/25 px-5 py-2 font-semibold peer-checked:border-brand-ink peer-checked:bg-brand-teal peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-offset-2">{l}</span>
+                <span className="inline-flex min-h-11 items-center rounded-full border border-brand-ink/25 px-5 py-2 font-semibold peer-checked:border-brand-ink peer-checked:bg-brand-honey peer-focus-visible:outline peer-focus-visible:outline-[3px] peer-focus-visible:outline-offset-2">{l}</span>
               </label>
             ))}
           </div>

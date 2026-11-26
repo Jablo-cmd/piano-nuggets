@@ -20,36 +20,35 @@ Avoid a luxury-only, dark, intimidating or overly formal aesthetic. Also avoid m
 
 ## 3. Colour palette
 
-The identity was refreshed (25 Nov 2026) from the original warm white/black/orange scheme to a cooler, calmer and more youthful palette. It is deliberately balanced: soft neutrals and teal carry most of the surface, with a single warm peach accent for primary actions.
+The identity was refreshed again on 26 Nov 2026. The palette is taken from the Piano Nuggets studio photograph (`public/images/studio-grand-piano.webp`): espresso-black piano and walls, golden oak panelling, a dusty rose carpet, and warm light. The result is black and white with golden-yellow touches, warm rather than cold.
 
 | Role | Colour | Hex | Tailwind token |
 |---|---|---|---|
-| Primary text and structure | Midnight navy (matches the logo) | `#0B1635` | `brand-ink` |
+| Text, structure and dark sections | Espresso black | `#170D0B` | `brand-ink` |
+| Richer dark cards | Mahogany | `#3A2220` | `brand-plum` |
 | Page background | White | `#FFFFFF` | `brand-white` |
-| Soft cool background | Mist | `#F1F8FB` | `brand-mist` |
-| Brand highlight (shapes, icon tiles, bands) | Aqua | `#9EDCEB` | `brand-teal` |
-| Large display accents and underlines only | Logo cyan | `#019FCB` | `brand-cyan` |
-| Text and links on light backgrounds | Deep cyan | `#00718F` | `brand-teal-deep` |
-| Primary buttons and small warm accents | Peach | `#FFB59A` | `brand-peach` |
-| Gentle secondary background | Lilac | `#E7E4FA` | `brand-lilac` |
+| Soft background | Warm cream | `#FBF4E8` | `brand-mist` |
+| Main accent: buttons, highlights, ribbon, icon tiles | Golden oak (honey) | `#E9A71C` | `brand-honey` |
+| Pale tint for small highlights | Pale oak | `#F8E4B6` | `brand-honey-soft` |
+| Hover and fine detail | Deep oak | `#B8701F` | `brand-oak` |
+| A rare soft secondary touch (numbers, glow) | Studio rose | `#C98B7E` | `brand-rose` |
 
 Usage:
-- Midnight ink for text, headings, the footer and secondary buttons. White and mist for most backgrounds; lilac for the occasional alternate section.
-- Aqua for decorative shapes, icon tiles, the piano-key strip and the enrolment call-to-action band. Do not use it for body text.
-- Deep cyan for links and small emphasis text on white or mist (meets WCAG AA contrast).
-- Peach only for the primary action button and tiny accents; keep it rare so it stays a signal.
-- Avoid saturated, neon or multi-colour layouts. If more than two non-neutral colours compete in one view, simplify.
+- Mostly white, cream and espresso black. Honey is the signal colour: primary buttons, the marker-style underline on accent words, icon tiles and the moving ribbon. Keep it to a touch, not a wash.
+- Black text on honey (high contrast). Honey is never used as text on white; on dark backgrounds honey text is fine.
+- Rose and mahogany appear sparingly (age-group cards, soft glows) to add warmth.
+- Avoid adding any further colours. Blue, aqua, purple and orange from earlier versions are retired.
 
-The previous palette (white, near-black `#171717`, light orange `#FFB36B`, warm cream `#FFF3E8`) is retired. The name and tagline are unchanged.
+Retired palettes: the original white/near-black/light orange/cream scheme, and the 26 Nov aqua/midnight/lilac/peach scheme.
 
 ## 3a. Logo
 
-The official logo (navy piano-key "P" mark with a blue-to-magenta gradient edge, navy "Piano" and cyan "Nuggets" wordmark, strapline "Learn · Play · Grow") is stored in `public/images/`: `logo-lockup.png` (mark + wordmark, used in the header and footer), `logo-full.png` (with strapline) and `logo-mark.png` (icon only, also the favicon). On dark backgrounds, place the lockup on a white panel; do not recolour it. The strapline "Learn · Play · Grow" is part of the logo artwork; the brand tagline remains "Every Note Counts. Every Musician Matters."
+The official logo (navy piano-key "P" mark with a blue-to-magenta gradient edge, navy "Piano" and cyan "Nuggets" wordmark, strapline "Learn · Play · Grow") is stored in `public/images/`: `logo-lockup.png` (mark + wordmark, used in the header and footer), `logo-full.png` (with strapline) and `logo-mark.png` (icon only, also the favicon). On dark backgrounds, place the lockup on a white panel; do not recolour it. The logo keeps its own navy, cyan and violet colours and sits on white (or on a white panel on dark backgrounds); it is not recoloured to the site palette. The strapline "Learn · Play · Grow" is part of the logo artwork; the brand tagline remains "Every Note Counts. Every Musician Matters."
 
 ## 4. Typography and layout
 
 - **Headings:** Outfit (geometric sans, close to the logo wordmark), tight tracking, balanced line breaks.
-- **Accent words:** Fraunces italic (soft optical axis) with a drawn aqua underline, used on one word or short phrase per heading to add lift. Use sparingly; never more than one accent per heading.
+- **Accent words:** Fraunces italic (soft optical axis) with a drawn honey marker underline, used on one word or short phrase per heading to add lift. Use sparingly; never more than one accent per heading.
 - **Body and UI:** DM Sans.
 - Prices use tabular numerals.
 

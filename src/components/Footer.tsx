@@ -25,12 +25,12 @@ export function Footer() {
       <div className="container-page grid gap-10 py-14 md:grid-cols-3">
         <div className="space-y-4">
           <Logo light />
-          <p className="font-display text-lg font-bold text-brand-teal">{site.tagline}</p>
+          <p className="font-display text-lg font-bold text-brand-honey">{site.tagline}</p>
           <FreshWindCredit className="text-sm text-white/75" />
         </div>
         <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
           {[...nav, { href: "/enrol", label: "Enrol Now" }].map((n) => (
-            <Link key={n.href} href={n.href} className="py-1 text-white/85 hover:text-brand-teal">{n.label}</Link>
+            <Link key={n.href} href={n.href} className="py-1 text-white/85 hover:text-brand-honey">{n.label}</Link>
           ))}
         </nav>
         <div className="space-y-2 text-sm text-white/85">
