@@ -41,7 +41,8 @@ export const faqGroups: FaqGroup[] = [
     title: "Enrolling",
     items: [
       { q: "Does sending an enquiry book my lesson?", a: "No. An enquiry is not a confirmed booking or a guaranteed place. Our team contacts you to discuss suitability, location, format, group placement and schedule, and confirms the next steps directly with you." },
-      { q: "How do I enquire right now?", a: "Message us on WhatsApp or send an email using the details on the Contact page. The online enrolment form is a preview and does not send anything yet." },
+      { q: "How do I enquire right now?", a: "Use the enrolment form on the Enrol page, or message us on WhatsApp or send an email using the details on the Contact page. Our team then contacts you to discuss arrangements." },
+      { q: "What happens to the details I send?", a: "We use them only to respond to your enquiry and arrange lessons. They are sent to the Piano Nuggets team by email, are not published, and are not sold or shared for marketing. See the privacy notice for details and your rights." },
       { q: "Who enrols a child?", a: "A parent or legal guardian should submit or oversee the enquiry for any learner under 18, and guardian contact details are needed. Adult learners are their own primary contact." },
       { q: "Do you promise exam results or a learning timeline?", a: "No. Everyone starts from where they are, and Piano Nuggets does not promise particular grades, exam results or timelines." },
     ],

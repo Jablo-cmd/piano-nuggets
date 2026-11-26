@@ -47,7 +47,7 @@ Treat the documentation as the current source of truth. Where a detail is marked
 
 ## Development
 
-Phase one public website: Next.js (App Router), TypeScript, Tailwind CSS, Lucide, Zod. No backend, database or analytics is connected.
+Phase one public website: Next.js (App Router), TypeScript, Tailwind CSS, Lucide, Zod. No database or analytics. Enrolment enquiries are emailed to the team through a server route (see below).
 
 ```bash
 npm install
@@ -55,4 +55,8 @@ npm run dev        # http://localhost:3000
 npm run lint && npm run typecheck && npm run build
 ```
 
-Unconfirmed business details (WhatsApp number, email, studio location, Fresh Wind Music URL) are configured through `NEXT_PUBLIC_*` variables; see `.env.example` and `src/config/site.ts`. Prices live only in `src/config/pricing.ts`. The enrolment form is a validated UI preview: `src/lib/submitEnquiry.ts` is deliberately not connected, so no enquiry data is sent, stored or logged.
+Unconfirmed business details (WhatsApp number, email, studio location, Fresh Wind Music URL) are configured through `NEXT_PUBLIC_*` variables; see `.env.example` and `src/config/site.ts`. Prices live only in `src/config/pricing.ts`. The enrolment form posts to `/api/enquiry`, which emails the enquiry to the team using server-side secrets (Resend or SMTP; see `.env.example`). Nothing is stored or logged. If email delivery is not configured, the form falls back to a prepared WhatsApp/email message that the visitor sends themselves.
+
+## Credits
+
+Website by [Auris Technologies](https://aurisnexus.co.za) (linked from the site footer; configured in `src/config/site.ts`).

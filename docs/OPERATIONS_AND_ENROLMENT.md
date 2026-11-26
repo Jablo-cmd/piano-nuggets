@@ -92,13 +92,13 @@ After submission:
 - Show a clear acknowledgement that the enquiry was received and the team will make contact.
 - Provide a fallback contact method if submission fails.
 
-The destination email address, notification method and authorised people who can access enquiries are **TBC**. Do not invent them.
+**As built (26 Nov 2026):** the form validates on the client and on the server, then emails the enquiry to `ENQUIRY_TO_EMAIL` (default: the public contact email) through Resend or SMTP, configured with server-side environment variables. Nothing is stored or logged on the website. A consent checkbox is required and a privacy notice is published at `/privacy`. If automatic delivery is unavailable, the visitor is shown a prepared WhatsApp and email message to send themselves, and the site does not claim the enquiry was received. Who in the team can read the destination mailbox, and the retention rule for enquiry emails, are still to be confirmed by the owner, and the privacy notice should be reviewed for POPIA before relying on it.
 
 ## 7. WhatsApp
 
 WhatsApp is an alternate enquiry route and may also be used by people who prefer not to complete the form.
 
-The official business WhatsApp number is **TBC**. Do not publish a fabricated number or create a non-functional WhatsApp button. Keep the number in configuration so it can be added without editing multiple components.
+The official business WhatsApp number is configured through `NEXT_PUBLIC_WHATSAPP_NUMBER`. Never publish a fabricated number or create a non-functional WhatsApp button. Keep the number in configuration so it can be added without editing multiple components.
 
 ## 8. Instructor and studio identity
 

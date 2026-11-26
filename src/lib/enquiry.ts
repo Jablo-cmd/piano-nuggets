@@ -24,9 +24,13 @@ export const enquirySchema = z
     platform: z.enum(["", "zoom", "other", "unsure"]).optional().default(""),
     materials: z.enum(["", "yes", "no", "more-info"]).optional().default(""),
     guardianConfirm: z.boolean().optional().default(false),
+    consent: z.boolean().optional().default(false),
+    /** Honeypot: real visitors never see or fill this. */
+    company: z.string().max(200).optional().default(""),
   })
   .superRefine((v, ctx) => {
     const add = (path: string, message: string) => ctx.addIssue({ code: "custom", path: [path], message });
+    if (!v.consent) add("consent", "Please agree so we can contact you about lessons.");
     const minor = v.age < 18;
     if (minor) {
       if (!v.guardianName) add("guardianName", "A parent or guardian's name is required for learners under 18.");
@@ -42,6 +46,7 @@ export const enquirySchema = z
   });
 
 export type EnquiryInput = z.input<typeof enquirySchema>;
+export type Enquiry = z.output<typeof enquirySchema>;
 export type EnquiryErrors = Record<string, string>;
 
 export function validateEnquiry(raw: unknown): { ok: true } | { ok: false; errors: EnquiryErrors } {
@@ -53,4 +58,47 @@ export function validateEnquiry(raw: unknown): { ok: true } | { ok: false; error
     if (!errors[k]) errors[k] = i.message;
   }
   return { ok: false, errors };
+}
+
+export function parseEnquiry(raw: unknown): { ok: true; data: Enquiry } | { ok: false; errors: EnquiryErrors } {
+  const r = enquirySchema.safeParse(raw);
+  if (r.success) return { ok: true, data: r.data };
+  const errors: EnquiryErrors = {};
+  for (const i of r.error.issues) {
+    const k = String(i.path[0] ?? "form");
+    if (!errors[k]) errors[k] = i.message;
+  }
+  // The cross-field rules only run once the basic fields are valid, so report missing consent here as well.
+  const consented = !!raw && typeof raw === "object" && (raw as Record<string, unknown>).consent === true;
+  if (!consented && !errors.consent) errors.consent = "Please agree so we can contact you about lessons.";
+  return { ok: false, errors };
+}
+
+const L = {
+  format: { studio: "At the Fresh Wind Music studio", home: "At home", online: "Online" },
+  lessonType: { individual: "Individual", group: "Group" },
+  experience: { beginner: "Complete beginner", some: "Some experience", returning: "Returning player" },
+  frequency: { once: "Once a week", twice: "Twice a week" },
+  instrument: { piano: "Piano", keyboard: "Keyboard", none: "None yet", other: "Other" },
+  platform: { zoom: "Zoom", other: "Another platform", unsure: "Not sure yet" },
+  materials: { yes: "Interested", no: "Not interested", "more-info": "Would like more information" },
+} as const;
+
+/** Plain-text enquiry used for both the email to the team and the WhatsApp fallback. */
+export function buildEnquiryText(d: Enquiry): string {
+  const lines = [
+    `Learner: ${d.learnerName} (age ${d.age})`,
+    `Piano experience: ${L.experience[d.experience]}`,
+    `Instrument available: ${L.instrument[d.instrument]}`,
+  ];
+  if (d.age < 18) lines.push(`Parent or guardian: ${d.guardianName}, ${d.guardianPhone}`);
+  if (d.phone) lines.push(`Phone: ${d.phone}`);
+  if (d.email) lines.push(`Email: ${d.email}`);
+  lines.push(`Preferred format: ${L.format[d.format]}`);
+  if (d.format === "home" && d.suburb) lines.push(`Suburb or area: ${d.suburb}`);
+  if (d.format === "online" && d.platform) lines.push(`Online platform: ${L.platform[d.platform as keyof typeof L.platform]}`);
+  lines.push(`Lessons: ${L.lessonType[d.lessonType]}, ${L.frequency[d.frequency].toLowerCase()}`);
+  if (d.materials) lines.push(`Instructional material pack (R850, optional): ${L.materials[d.materials as keyof typeof L.materials]}`);
+  lines.push("", "Consent given on the website to be contacted about lessons. This is an enquiry, not a confirmed booking.");
+  return lines.join("\n");
 }

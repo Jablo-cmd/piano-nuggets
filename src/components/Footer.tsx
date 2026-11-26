@@ -54,8 +54,18 @@ export function Footer() {
           </address>
         </div>
       </div>
-      <div className="border-t border-white/15 py-5 text-center text-xs text-white/60">
-        © {new Date().getFullYear()} Piano Nuggets. All prices in South African Rand (<abbr title="South African Rand">ZAR</abbr>).
+      <div className="border-t border-white/15">
+        <div className="container-page flex flex-col items-center justify-between gap-2 pb-24 pt-5 text-xs text-white/60 sm:flex-row sm:pb-5">
+          <p>
+            © {new Date().getFullYear()} Piano Nuggets. All prices in South African Rand (<abbr title="South African Rand">ZAR</abbr>).{" "}
+            <Link href="/privacy" className="underline underline-offset-4 hover:text-brand-honey">Privacy notice</Link>
+          </p>
+          <p>
+            <a href={site.credit.url} target="_blank" rel="noopener" className="font-semibold text-white/80 underline underline-offset-4 transition hover:text-brand-honey">
+              {site.credit.text}<span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );

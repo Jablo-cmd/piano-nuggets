@@ -50,8 +50,8 @@ The following details must be confirmed before public launch:
 | Instructor identity/team | TBC | Avoid named profiles until confirmed |
 | Instructor biographies and credentials | TBC | Do not fabricate |
 | Exact studio address / public location wording | TBC | Do not publish an assumed address |
-| Enquiry recipient and notification route | TBC | Confirm before enabling form submission |
-| Privacy notice and retention period | TBC | Review before collecting live data |
+| Enquiry recipient and notification route | Built: server route emails the team (`ENQUIRY_TO_EMAIL`); needs a Resend key or SMTP mailbox set in Vercel | Until set, the form shows a prepared WhatsApp/email message instead |
+| Privacy notice and retention period | Draft notice published at `/privacy`; retention wording is generic | Owner to review for POPIA and confirm retention |
 | Supabase project and approval | TBC | Do not assume an existing project is authorised for this product |
 | Domain and DNS configuration | Done for `piano-nuggets.aurisnexus.co.za`; redirect host `pianonuggets.aurisnexus.co.za` needs a DNS CNAME | Update `NEXT_PUBLIC_SITE_URL` and redeploy if the hostname changes |
 | Lesson availability / timetable | TBC | Do not imply real-time availability |

@@ -1,8 +1,9 @@
 "use client";
 import { useRef, useState, type ReactNode } from "react";
-import { AlertTriangle, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { CheckCircle2, Mail, MessageCircle, ShieldCheck } from "lucide-react";
 import { Button } from "./Button";
-import { validateEnquiry, type EnquiryErrors } from "@/lib/enquiry";
+import { buildEnquiryText, parseEnquiry, type Enquiry, type EnquiryErrors } from "@/lib/enquiry";
 import { submitEnquiry } from "@/lib/submitEnquiry";
 import { site, whatsappLink } from "@/config/site";
 
@@ -50,31 +51,42 @@ export function EnrolForm() {
   const [errors, setErrors] = useState<EnquiryErrors>({});
   const [format, setFormat] = useState("");
   const [age, setAge] = useState<number | null>(null);
-  const [status, setStatus] = useState<"idle" | "not-configured" | "received">("idle");
-  const [busy, setBusy] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "received" | "fallback" | "rate-limited">("idle");
+  const [pending, setPending] = useState<Enquiry | null>(null);
   const minor = age !== null && age < 18;
-  const wa = whatsappLink();
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const data: Record<string, unknown> = Object.fromEntries(fd.entries());
-    data.guardianConfirm = fd.get("guardianConfirm") === "on";
-    const result = validateEnquiry(data);
+  function focusFirst(errs: EnquiryErrors) {
+    const first = Object.keys(errs)[0];
+    requestAnimationFrame(() => (ref.current?.elements.namedItem(first) as HTMLElement | null)?.focus?.());
+  }
+
+  async function onSubmit(ev: React.FormEvent<HTMLFormElement>) {
+    ev.preventDefault();
+    if (status === "sending") return;
+    const fd = new FormData(ev.currentTarget);
+    const raw: Record<string, unknown> = Object.fromEntries(fd.entries());
+    raw.guardianConfirm = fd.get("guardianConfirm") === "on";
+    raw.consent = fd.get("consent") === "on";
+    const parsed = parseEnquiry(raw);
     setStatus("idle");
-    if (!result.ok) {
-      setErrors(result.errors);
-      const first = Object.keys(result.errors)[0];
-      requestAnimationFrame(() => (ref.current?.elements.namedItem(first) as HTMLElement | null)?.focus?.());
+    if (!parsed.ok) {
+      setErrors(parsed.errors);
+      focusFirst(parsed.errors);
       return;
     }
     setErrors({});
-    if (!site.enquiriesEnabled) { setStatus("not-configured"); return; }
-    setBusy(true);
-    const r = await submitEnquiry();
-    setBusy(false);
-    setStatus(r.ok ? "received" : "not-configured");
+    setPending(parsed.data);
+    setStatus("sending");
+    const r = await submitEnquiry(parsed.data);
+    if (r.status === "sent") setStatus("received");
+    else if (r.status === "invalid") { setErrors(r.errors); setStatus("idle"); focusFirst(r.errors); }
+    else setStatus(r.status);
   }
+
+  /** Fallback when automatic delivery is unavailable: the visitor sends the prepared enquiry themselves. */
+  const message = pending ? `Hello Piano Nuggets, I would like to enquire about piano lessons.\n\n${buildEnquiryText(pending)}` : "";
+  const waHref = pending ? whatsappLink(message) : null;
+  const mailHref = pending && site.contactEmail ? `mailto:${site.contactEmail}?subject=${encodeURIComponent("Piano lessons enquiry")}&body=${encodeURIComponent(message)}` : null;
 
   const e = errors;
   const count = Object.keys(e).length;
@@ -89,15 +101,40 @@ export function EnrolForm() {
     );
   }
 
-  return (
-    <form ref={ref} onSubmit={onSubmit} noValidate className="space-y-8" aria-describedby="form-notice">
-      <div id="form-notice" className="flex gap-3 rounded-xl2 border border-brand-honey bg-brand-mist p-5 text-sm sm:text-base">
-        <AlertTriangle aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-brand-ink" />
-        <p>
-          <strong>Online enquiries are not open yet.</strong> This form is a preview: nothing you type is sent, saved or logged. An enquiry is not a confirmed booking. Please{" "}
-          {wa ? <a className="link" href={wa}>message us on WhatsApp</a> : <a className="link" href="/contact">see how to contact us</a>} in the meantime.
-        </p>
+  const fallbackPanel = status === "fallback" ? (
+      <div className="card !rounded-[2rem] !p-8" role="status">
+        <h2 className="text-2xl font-extrabold">One more step: send your enquiry to us</h2>
+        <p className="mt-3 text-brand-ink/80">We could not send your enquiry automatically just now. <strong>Nothing has been sent yet.</strong> Your details are ready: tap a button below and press send, and our team will take it from there.</p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          {waHref && (
+            <a href={waHref} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-brand-honey px-6 py-3 font-bold text-brand-ink shadow-soft transition hover:bg-[#D9970F]"><MessageCircle aria-hidden className="h-5 w-5" /> Send on WhatsApp</a>
+          )}
+          {mailHref && (
+            <a href={mailHref} className="inline-flex min-h-12 items-center gap-2 rounded-full border-2 border-brand-ink px-6 py-3 font-bold transition hover:bg-brand-ink hover:text-white"><Mail aria-hidden className="h-5 w-5" /> Send by email</a>
+          )}
+          {!waHref && !mailHref && <Link href="/contact" className="link">See how to contact us</Link>}
+        </div>
+        <button type="button" onClick={() => setStatus("idle")} className="mt-6 text-sm font-semibold underline underline-offset-4">Go back and edit my details</button>
       </div>
+  ) : null;
+
+  return (
+    <>
+    {fallbackPanel}
+    <form ref={ref} onSubmit={onSubmit} noValidate hidden={status === "fallback"} className="space-y-8">
+      <div className="flex gap-3 rounded-xl2 border border-brand-honey bg-brand-mist p-5 text-sm sm:text-base">
+        <ShieldCheck aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-brand-ink" />
+        <p>An enquiry is <strong>not a confirmed booking</strong>. Our team will contact you to discuss arrangements. We only use these details to respond to you: see our <Link className="link" href="/privacy">privacy notice</Link>.</p>
+      </div>
+
+      {/* Honeypot: hidden from people, filled by bots. */}
+      <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+        <label>Company <input type="text" name="company" tabIndex={-1} autoComplete="off" /></label>
+      </div>
+
+      {status === "rate-limited" && (
+        <div role="alert" className="rounded-xl2 border-2 border-red-700 bg-red-50 p-4 font-semibold text-red-800">You have sent several enquiries in a short time. Please wait a few minutes and try again, or contact us on WhatsApp.</div>
+      )}
 
       {count > 0 && (
         <div role="alert" className="rounded-xl2 border-2 border-red-700 bg-red-50 p-4 text-red-800">
@@ -184,16 +221,16 @@ export function EnrolForm() {
         </Field>
       </fieldset>
 
-      <p className="text-sm text-brand-ink/70">Privacy notice: to be confirmed before online enquiries open. Please do not enter anything you would not want kept private until then.</p>
+      <div>
+        <label className="flex items-start gap-3">
+          <input type="checkbox" name="consent" className="mt-1 h-5 w-5 accent-[#170D0B]" aria-invalid={!!e.consent} aria-describedby={e.consent ? "consent-error" : undefined} />
+          <span>I agree that Piano Nuggets may use these details to contact me about piano lessons. I have read the <Link className="link" href="/privacy">privacy notice</Link>.</span>
+        </label>
+        {e.consent && <p id="consent-error" className="field-error" role="alert">{e.consent}</p>}
+      </div>
 
-      <Button type="submit" disabled={busy}>Check my enquiry</Button>
-
-      {status === "not-configured" && (
-        <div role="status" className="rounded-xl2 border-2 border-brand-ink p-5">
-          <p className="font-bold">Your details look complete, but nothing has been sent.</p>
-          <p className="mt-1 text-brand-ink/80">Online enquiries are not open yet. Please contact us directly so our team can help you arrange lessons.</p>
-        </div>
-      )}
+      <Button type="submit" disabled={status === "sending"} aria-live="polite">{status === "sending" ? "Sending…" : "Send my enquiry"}</Button>
     </form>
+    </>
   );
 }

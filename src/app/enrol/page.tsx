@@ -1,5 +1,4 @@
 import { pageOpenGraph } from "@/config/seo";
-import { site } from "@/config/site";
 import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import { EnrolForm } from "@/components/EnrolForm";
@@ -9,7 +8,6 @@ export const metadata: Metadata = {
   title: "Enrol for Piano Lessons",
   description: "Start an enrolment enquiry for piano or keyboard lessons. Our team will contact you to arrange lessons.",
   alternates: { canonical: "/enrol" },
-  robots: site.enquiriesEnabled ? { index: true, follow: true } : { index: false, follow: true },
   openGraph: pageOpenGraph("/enrol", "Enrol for Piano Lessons | Piano Nuggets"),
 };
 

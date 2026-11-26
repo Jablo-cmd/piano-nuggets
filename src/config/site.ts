@@ -18,9 +18,8 @@ export const site = {
   whatsappNumber: clean(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER)?.replace(/\D/g, "") ?? null,
   contactEmail: clean(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
   studioLocation: clean(process.env.NEXT_PUBLIC_STUDIO_LOCATION),
-  /** Live enquiry delivery. Off until privacy arrangements and a recipient are approved. */
-  enquiriesEnabled: process.env.NEXT_PUBLIC_ENQUIRIES_ENABLED === "true",
-  enquiryEndpoint: clean(process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT),
+  /** Studio and web credit shown in the footer. */
+  credit: { text: "Website by Auris Technologies", url: "https://aurisnexus.co.za" },
 } as const;
 
 export const whatsappLink = (message = "Hello Piano Nuggets, I would like to enquire about piano lessons.") =>
