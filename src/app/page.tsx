@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 const formats = [
-  { icon: Building2, title: "At the studio", text: "Learn at the Fresh Wind Music studio. Location details to be confirmed." },
+  { icon: Building2, title: "At the studio", text: "Learn at the Fresh Wind Music studio. 4 Lang Street, Rosettenville." },
   { icon: HomeIcon, title: "At your home", text: "An instructor can come to you, subject to location and additional travel charges." },
   { icon: Globe, title: "Online", text: "Learn by Zoom (preferred) or another platform with good sound quality." },
 ];

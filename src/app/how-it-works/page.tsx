@@ -32,7 +32,7 @@ export default function HowItWorksPage() {
       </PageHero>
       <Section id="formats" title={<>Three ways <Accent>to learn</Accent></>}>
         <ul className="grid gap-5 md:grid-cols-3">
-          <Reveal as="li" className="card h-full"><Building2 aria-hidden className="h-8 w-8 text-brand-ink" /><h3 className="mt-4 text-xl font-bold">Studio lessons</h3><p className="mt-2 text-brand-ink/75">Attend the Fresh Wind Music studio. Public location details are to be confirmed.</p></Reveal>
+          <Reveal as="li" className="card h-full"><Building2 aria-hidden className="h-8 w-8 text-brand-ink" /><h3 className="mt-4 text-xl font-bold">Studio lessons</h3><p className="mt-2 text-brand-ink/75">Attend the Fresh Wind Music studio. 4 Lang Street, Rosettenville.</p></Reveal>
           <Reveal as="li" delay={0.05} className="card h-full"><HomeIcon aria-hidden className="h-8 w-8 text-brand-ink" /><h3 className="mt-4 text-xl font-bold">Home lessons</h3><p className="mt-2 text-brand-ink/75">An instructor can be deployed to your residence, subject to location. Additional travel charges depend on where you live; request a quotation.</p></Reveal>
           <Reveal as="li" delay={0.1} className="card h-full"><Globe aria-hidden className="h-8 w-8 text-brand-ink" /><h3 className="mt-4 text-xl font-bold">Online lessons</h3><p className="mt-2 text-brand-ink/75">Zoom is preferred. Another platform can be used if the sound quality is good enough for lessons to run smoothly.</p></Reveal>
         </ul>
