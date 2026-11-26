@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import { ButtonLink } from "./Button";
 import { Reveal } from "./Reveal";
 import { site, whatsappLink } from "@/config/site";
-import { KeyWave } from "./KeyWave";
 
 /** Dark page header used on every inner page. */
 export function PageHero({ eyebrow, title, children }: { eyebrow: string; title: ReactNode; children?: ReactNode }) {
@@ -14,7 +13,6 @@ export function PageHero({ eyebrow, title, children }: { eyebrow: string; title:
         <h1 className="mt-6 max-w-4xl text-5xl font-extrabold leading-[1.02] sm:text-6xl lg:text-7xl">{title}</h1>
         {children && <div className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">{children}</div>}
       </div>
-      <KeyWave />
     </section>
   );
 }

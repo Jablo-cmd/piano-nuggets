@@ -9,8 +9,6 @@ import { EnrolCta, Section } from "@/components/Sections";
 import { PricingPreview } from "@/components/PricingBlocks";
 import { LearningAreaIcon } from "@/components/LearningAreaIcon";
 import { FreshWindCredit } from "@/components/Footer";
-import { Marquee } from "@/components/Marquee";
-import { KeyWave } from "@/components/KeyWave";
 import { StatStrip } from "@/components/StatStrip";
 import { PlayablePiano } from "@/components/PlayablePiano";
 import { images } from "@/config/images";
@@ -72,21 +70,10 @@ export default function HomePage() {
             <div className="absolute -left-4 bottom-6 flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-brand-ink shadow-lift sm:-left-8">
               <Clock aria-hidden className="h-4 w-4" /> 60-minute lessons
             </div>
-            <svg viewBox="0 0 200 200" className="spin-slow absolute -right-3 -top-8 h-28 w-28 sm:-right-8 sm:h-36 sm:w-36" aria-hidden="true" focusable="false">
-              <circle cx="100" cy="100" r="98" fill="#170D0B" stroke="#E9A71C" strokeWidth="3" />
-              <defs><path id="ring" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0" /></defs>
-              <text fill="#E9A71C" fontSize="15" fontWeight="800" fontFamily="var(--font-display), sans-serif">
-                <textPath href="#ring" textLength="440" lengthAdjust="spacing">EVERY NOTE COUNTS • EVERY MUSICIAN MATTERS •</textPath>
-              </text>
-              <path d="M88 128V78l36-8v46" fill="none" stroke="#E9A71C" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
-              <circle cx="78" cy="128" r="11" fill="#E9A71C" /><circle cx="114" cy="116" r="11" fill="#E9A71C" />
-            </svg>
           </div>
         </div>
-        <KeyWave />
       </section>
 
-      <Marquee />
       <StatStrip />
 
       <Section id="intro" tone="mist" title={<>Welcome to <Accent>Piano Nuggets</Accent></>} intro="A welcoming place to learn piano and keyboard, whatever your age or experience.">

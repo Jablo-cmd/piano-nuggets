@@ -14,7 +14,6 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-    .spin-slow, .marquee-track, .key-wave > *, .blob { animation: none !important; }
   }
 }
 
@@ -51,13 +50,6 @@
   }
   .dots { background-image: radial-gradient(rgba(255,255,255,0.14) 1px, transparent 1px); background-size: 24px 24px; }
   .dots-dark { background-image: radial-gradient(rgba(23,13,11,0.12) 1px, transparent 1px); background-size: 24px 24px; }
-  .spin-slow { animation: spin 26s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .marquee-track { animation: marquee 38s linear infinite; }
-  .marquee:hover .marquee-track { animation-play-state: paused; }
-  @keyframes marquee { to { transform: translateX(-50%); } }
-  .key-wave > * { transform-origin: bottom; animation: key-wave 3.2s ease-in-out infinite; }
-  @keyframes key-wave { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.62); } }
 }
 
 @layer utilities {
