@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { nav, site, whatsappLink } from "@/config/site";
+import { nav, site, whatsappDisplay, whatsappLink } from "@/config/site";
 import { Logo } from "./Logo";
 import { KeyStrip } from "./PianoKeys";
 
@@ -35,8 +35,8 @@ export function Footer() {
         </nav>
         <div className="space-y-2 text-sm text-white/85">
           <h2 className="font-display text-base font-bold text-white">Get in touch</h2>
-          {wa ? <p><a className="underline underline-offset-4" href={wa}>Message us on WhatsApp</a></p> : <p>WhatsApp: to be confirmed</p>}
-          {site.contactEmail ? <p><a className="underline underline-offset-4" href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a></p> : <p>Email: to be confirmed</p>}
+          {wa && whatsappDisplay ? <p>WhatsApp: <a className="font-semibold underline underline-offset-4 hover:text-brand-honey" href={wa}>{whatsappDisplay}</a></p> : <p>WhatsApp: to be confirmed</p>}
+          {site.contactEmail ? <p>Email: <a className="font-semibold underline underline-offset-4 hover:text-brand-honey" href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a></p> : <p>Email: to be confirmed</p>}
           <p><Link className="underline underline-offset-4" href="/contact">Contact page</Link></p>
         </div>
       </div>

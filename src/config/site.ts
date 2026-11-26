@@ -28,6 +28,13 @@ export const whatsappLink = (message = "Hello Piano Nuggets, I would like to enq
     ? `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`
     : null;
 
+/** "27735181740" -> "+27 73 518 1740" (South African mobile format); other numbers are shown as +digits. */
+export const whatsappDisplay = site.whatsappNumber
+  ? /^27\d{9}$/.test(site.whatsappNumber)
+    ? `+27 ${site.whatsappNumber.slice(2, 4)} ${site.whatsappNumber.slice(4, 7)} ${site.whatsappNumber.slice(7)}`
+    : `+${site.whatsappNumber}`
+  : null;
+
 export const nav = [
   { href: "/", label: "Home" },
   { href: "/piano-lessons", label: "Piano Lessons" },
