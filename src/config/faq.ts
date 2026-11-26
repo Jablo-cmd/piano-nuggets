@@ -18,7 +18,7 @@ export const faqGroups: FaqGroup[] = [
     id: "formats",
     title: "Where and how you learn",
     items: [
-      { q: "Where do lessons take place?", a: "At the Fresh Wind Music studio, at your home, or online. Public studio location details are still to be confirmed." },
+      { q: "Where do lessons take place?", a: "At the Fresh Wind Music studio, at your home, or online. The studio is at 4 Lang Street, Rosettenville." },
       { q: "Can an instructor come to my home?", a: "Home lessons are available on request, subject to location. Additional travel charges depend on where you live, so please ask for a quotation." },
       { q: "Are lessons individual or in a group?", a: "Both. Individual lessons are one-to-one. Studio group lessons are for 4 to 6 students, and group lessons are also available online. Group placement is arranged after we speak with you." },
       { q: "What do I need for online lessons?", a: "Reliable internet, a piano or keyboard, and good enough audio for your instructor to hear the notes you play. A full-size piano or electronic keyboard is recommended, although any usable keyboard can be used. Zoom is preferred; another platform can be used if the sound quality is suitable." },
