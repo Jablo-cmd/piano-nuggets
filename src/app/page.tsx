@@ -10,6 +10,7 @@ import { EnrolCta, Section } from "@/components/Sections";
 import { PricingPreview } from "@/components/PricingBlocks";
 import { LearningAreaIcon } from "@/components/LearningAreaIcon";
 import { FreshWindCredit } from "@/components/Footer";
+import { FreshWindSection } from "@/components/FreshWindSection";
 import { StatStrip } from "@/components/StatStrip";
 import { PlayablePiano } from "@/components/PlayablePiano";
 import { images } from "@/config/images";
@@ -160,6 +161,7 @@ export default function HomePage() {
         </ul>
       </Section>
 
+      <FreshWindSection />
       <EnrolCta />
     </>
   );

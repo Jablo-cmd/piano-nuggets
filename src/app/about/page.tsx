@@ -2,6 +2,7 @@ import { breadcrumbLd, pageOpenGraph, webPageLd } from "@/config/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
+import { FreshWindSection } from "@/components/FreshWindSection";
 import { EnrolCta, PageHero, Section } from "@/components/Sections";
 import { FreshWindCredit } from "@/components/Footer";
 import { site } from "@/config/site";
@@ -39,6 +40,7 @@ export default function AboutPage() {
           Instructor profiles will be added here once they have been confirmed. {/* TBC: instructor identity, biographies and credentials */}
         </p>
       </Section>
+      <FreshWindSection />
       <EnrolCta />
     </>
   );
