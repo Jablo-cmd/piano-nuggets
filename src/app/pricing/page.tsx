@@ -1,4 +1,6 @@
-import { pageOpenGraph } from "@/config/seo";
+import Link from "next/link";
+import { breadcrumbLd, offersLd, pageOpenGraph, webPageLd } from "@/config/seo";
+import { JsonLd } from "@/components/JsonLd";
 import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import { EnrolCta, PageHero, Section } from "@/components/Sections";
@@ -7,7 +9,7 @@ import { ButtonLink } from "@/components/Button";
 
 export const metadata: Metadata = {
   title: "Piano Lesson Prices",
-  description: "Clear piano lesson fees in rand, with each price shown against exactly what it covers: per lesson, per month, per group or per student.",
+  description: "Piano lesson fees in rand: R350 per individual lesson, R1,400 or R2,800 a month, R1,500 per studio group session, R350 per online student. Registration R250.",
   alternates: { canonical: "/pricing" },
   openGraph: pageOpenGraph("/pricing", "Piano Lesson Prices | Piano Nuggets"),
 };
@@ -15,6 +17,9 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
+      <JsonLd data={webPageLd("/pricing", "Piano Lesson Prices | Piano Nuggets", metadata.description as string)} />
+      <JsonLd data={breadcrumbLd([{ name: "Home", path: "/" }, { name: "Pricing", path: "/pricing" }])} />
+      <JsonLd data={offersLd()} />
       <PageHero eyebrow="Pricing" title={<>Simple, transparent <Accent>lesson fees.</Accent></>}>
         Every lesson is 60 minutes. Each price below shows what it covers, so there are no surprises.
       </PageHero>
@@ -27,7 +32,8 @@ export default function PricingPage() {
       <Section id="extras" title="Registration, materials and home lessons">
         <ExtrasPricing />
         <PricingNotes />
-        <div className="mt-8"><ButtonLink href="/contact" variant="secondary">Request a home-lesson quotation</ButtonLink></div>
+        <div className="mt-8"><ButtonLink href="/contact" variant="secondary">Request a home-lesson quotation</ButtonLink>
+        <p className="mt-6 text-brand-ink/75">Questions about fees? See the <Link className="link" href="/faq#pricing">pricing FAQ</Link>.</p></div>
       </Section>
       <EnrolCta />
     </>

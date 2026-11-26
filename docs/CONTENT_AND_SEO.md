@@ -106,3 +106,29 @@ Content must stay consistent with the launch offering; future courses (music pro
 ## 11. Measurement
 
 Plan analytics that respect privacy (POPIA): track enquiry-form completions and page performance without recording form contents. Review Search Console after launch. Tooling choice: TBC.
+
+
+## 12. Implementation status (26 Nov 2026)
+
+Implemented in code:
+
+- **Titles and descriptions:** unique per page, titles under about 65 characters and descriptions 120 to 160 characters (see the pages' `metadata`). The site name is appended by the title template; the home page uses an absolute title.
+- **Structured data (JSON-LD):** a site-wide `Organization`/`EducationalOrganization` + `WebSite` graph (logo, slogan, parent organisation Fresh Wind Music, and only the contact points that are configured); `WebPage` + `BreadcrumbList` on every inner page; `FAQPage` on the FAQ page and on each landing page, matching the visible questions exactly; and a `Service` with an `OfferCatalog` on the pricing page whose seven offers carry the exact prices and units (including the whole-group versus per-student distinction). No address, rating, review or opening hours markup, because none are confirmed. Helpers live in `src/config/seo.ts`.
+- **Search-intent landing pages:** `/beginner-piano-lessons`, `/adult-piano-lessons`, `/kids-and-teens-piano-lessons`, `/online-piano-lessons`, plus `/faq`. Content comes only from confirmed facts (`src/config/landing.ts`, `src/config/faq.ts`). Each is linked from the footer, the Piano Lessons page and related-lesson cards, so there are no orphan pages.
+- **Crawling:** `sitemap.xml` lists only indexable pages; `/enrol` is excluded and set to `noindex, follow` until online enquiries are live (`NEXT_PUBLIC_ENQUIRIES_ENABLED`). `robots.txt` allows all and points to the sitemap. A web manifest is provided. `hreflang` (`en-ZA`) is declared on the home page.
+- **Social sharing:** one 1200x630 image with full Open Graph and Twitter tags on every page.
+- **IndexNow:** the key file is hosted at the site root so Bing and other IndexNow engines can be notified of new or changed pages (Google does not use IndexNow).
+
+Not done, and why:
+
+- **Location claims and local business markup:** the studio address and service area are unconfirmed, so no `LocalBusiness` markup, no Google Business Profile guidance beyond section 5, and no "in <city>" copy.
+- **Keyword volume validation:** not run (limited tool credits). Before expanding content, check demand in Google Search Console or a keyword tool.
+- **Reviews and testimonials:** none exist yet; add only genuine, consented ones.
+
+Owner actions to complete the set-up:
+
+1. Add the site as a Search Console property (URL-prefix `https://piano-nuggets.aurisnexus.co.za`, or the DNS record method on `aurisnexus.co.za`), submit `/sitemap.xml`, and use URL Inspection to request indexing of the home and landing pages.
+2. Add the site to Bing Webmaster Tools and import from Search Console.
+3. Once the studio address is confirmed, create the Google Business Profile and add `LocalBusiness`/`MusicSchool` markup with the same name, address and phone.
+4. Earn links: ask Fresh Wind Music to link to Piano Nuggets (a "Music Lessons" navigation item and a homepage section), per section 9.
+5. Measure: after launch, review impressions, queries and click-through in Search Console, and refine titles and descriptions from real data.

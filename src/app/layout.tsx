@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/config/site";
-import { ogImage } from "@/config/seo";
+import { ogImage, siteGraph } from "@/config/seo";
 
 const display = Outfit({ subsets: ["latin"], weight: ["500", "600", "700", "800"], variable: "--font-display", display: "swap" });
 const accent = Fraunces({ subsets: ["latin"], style: ["italic"], axes: ["SOFT", "opsz"], variable: "--font-accent", display: "swap" });
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: { default: "Piano Nuggets — Piano & Keyboard Lessons", template: "%s | Piano Nuggets" },
   description: site.description,
   applicationName: site.name,
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", languages: { "en-ZA": "/" } },
   openGraph: {
     type: "website",
     locale: "en_ZA",
@@ -37,18 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-ZA" className={`${display.variable} ${accent.variable} ${body.variable}`}>
       <body>
         <a href="#main" className="sr-only z-50 rounded-full bg-brand-ink px-4 py-2 text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Skip to content</a>
-        <JsonLd
-          data={{
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: site.name,
-            slogan: site.tagline,
-            url: site.url,
-            description: site.description,
-            logo: `${site.url}/images/logo-lockup.png`,
-            parentOrganization: { "@type": "Organization", name: site.supportedBy },
-          }}
-        />
+        <JsonLd data={siteGraph()} />
         <Header />
         <main id="main">{children}</main>
         <Footer />

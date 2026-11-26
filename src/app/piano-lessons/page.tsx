@@ -1,4 +1,5 @@
-import { pageOpenGraph } from "@/config/seo";
+import Link from "next/link";
+import { breadcrumbLd, pageOpenGraph, webPageLd } from "@/config/seo";
 import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import { Reveal } from "@/components/Reveal";
@@ -9,11 +10,12 @@ import { JsonLd } from "@/components/JsonLd";
 import { learningAreas } from "@/config/pricing";
 import { site } from "@/config/site";
 import { Photo } from "@/components/Photo";
+import { landings } from "@/config/landing";
 import { images } from "@/config/images";
 
 export const metadata: Metadata = {
   title: "Piano & Keyboard Lessons for All Ages",
-  description: "Learn practical piano, music theory, harmony and technique in individual or group lessons for children, teenagers and adults.",
+  description: "Practical piano, music theory, harmony and technique in 60-minute individual or group lessons for children, teenagers and adults. Studio, home or online.",
   alternates: { canonical: "/piano-lessons" },
   openGraph: pageOpenGraph("/piano-lessons", "Piano & Keyboard Lessons for All Ages | Piano Nuggets"),
 };
@@ -21,6 +23,8 @@ export const metadata: Metadata = {
 export default function PianoLessonsPage() {
   return (
     <>
+      <JsonLd data={webPageLd("/piano-lessons", "Piano & Keyboard Lessons for All Ages | Piano Nuggets", metadata.description as string)} />
+      <JsonLd data={breadcrumbLd([{ name: "Home", path: "/" }, { name: "Piano Lessons", path: "/piano-lessons" }])} />
       <JsonLd data={{ "@context": "https://schema.org", "@type": "Service", name: "Piano and keyboard lessons", serviceType: "Music education", provider: { "@type": "Organization", name: site.name, url: site.url }, audience: { "@type": "Audience", audienceType: "Children, teenagers and adults" } }} />
       <PageHero eyebrow="Piano Lessons" title={<>Learn to play, and understand <Accent>why it works.</Accent></>}>
         Lessons are designed to develop musical understanding, practical ability and confidence, for beginners and for learners who already have some experience.
@@ -36,6 +40,16 @@ export default function PianoLessonsPage() {
               <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-brand-honey"><LearningAreaIcon name={a.icon} /></span>
               <div><h3 className="text-xl font-bold">{a.title}</h3><p className="mt-2 text-brand-ink/75">{a.text}</p></div>
             </Reveal>
+          ))}
+        </div>
+      </Section>
+      <Section id="find" title={<>Find the lessons <Accent>for you</Accent></>} intro="Pick the page that sounds most like you for a closer look.">
+        <div className="grid gap-4 sm:grid-cols-2">
+          {landings.map((l) => (
+            <Link key={l.path} href={l.path} className="group flex items-center justify-between gap-3 rounded-[1.5rem] border-2 border-brand-ink bg-white p-5 text-lg font-bold transition hover:-translate-y-1 hover:bg-brand-honey">
+              {l.navName}
+              <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+            </Link>
           ))}
         </div>
       </Section>

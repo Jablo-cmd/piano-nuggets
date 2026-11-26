@@ -2,13 +2,15 @@ import type { ReactNode } from "react";
 import { ButtonLink } from "./Button";
 import { Reveal } from "./Reveal";
 import { site, whatsappLink } from "@/config/site";
+import { Breadcrumbs } from "./Breadcrumbs";
 
 /** Dark page header used on every inner page. */
-export function PageHero({ eyebrow, title, children }: { eyebrow: string; title: ReactNode; children?: ReactNode }) {
+export function PageHero({ eyebrow, title, children, crumbs }: { eyebrow: string; title: ReactNode; children?: ReactNode; crumbs?: { name: string; path: string }[] }) {
   return (
     <section className="hero-bg on-dark relative overflow-hidden text-white">
       <div className="dots absolute inset-0 opacity-40" aria-hidden="true" />
       <div className="container-page relative py-16 sm:py-24">
+        {crumbs && <Breadcrumbs trail={crumbs} />}
         <p className="eyebrow">{eyebrow}</p>
         <h1 className="mt-6 max-w-4xl text-5xl font-extrabold leading-[1.02] sm:text-6xl lg:text-7xl">{title}</h1>
         {children && <div className="mt-6 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">{children}</div>}

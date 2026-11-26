@@ -6,6 +6,7 @@ import { ArrowUpRight, Mail, MapPin, MessageCircle } from "lucide-react";
 import { EnrolCta, PageHero, Section } from "@/components/Sections";
 import { Reveal } from "@/components/Reveal";
 import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbLd, webPageLd } from "@/config/seo";
 import { site, whatsappDisplay, whatsappLink } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -21,13 +22,10 @@ function Pending() {
 
 export default function ContactPage() {
   const wa = whatsappLink();
-  const points = [
-    ...(site.contactEmail ? [{ "@type": "ContactPoint", contactType: "customer service", email: site.contactEmail, availableLanguage: "English" }] : []),
-    ...(site.whatsappNumber ? [{ "@type": "ContactPoint", contactType: "customer service", telephone: `+${site.whatsappNumber}`, availableLanguage: "English" }] : []),
-  ];
   return (
     <>
-      {points.length > 0 && <JsonLd data={{ "@context": "https://schema.org", "@type": "Organization", name: site.name, url: site.url, contactPoint: points }} />}
+      <JsonLd data={webPageLd("/contact", "Contact Us | Piano Nuggets", metadata.description as string)} />
+      <JsonLd data={breadcrumbLd([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])} />
       <PageHero eyebrow="Contact" title={<>Let&rsquo;s talk about <Accent>piano lessons.</Accent></>}>
         Questions about lessons, formats or home-lesson quotations? Message us or send an enrolment enquiry and our team will be in touch.
       </PageHero>

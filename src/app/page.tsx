@@ -15,8 +15,8 @@ import { images } from "@/config/images";
 import { learningAreas } from "@/config/pricing";
 
 export const metadata: Metadata = {
-  title: { absolute: "Piano Nuggets — Piano & Keyboard Lessons" },
-  description: "Friendly piano and keyboard lessons for children, teenagers and adults. Studio, home and online options, supported by Fresh Wind Music.",
+  title: { absolute: "Piano & Keyboard Lessons: Studio, Home & Online | Piano Nuggets" },
+  description: "Piano and keyboard lessons for children, teenagers and adults: practical playing, theory, harmony and technique. Individual or group, from R350 a lesson.",
   alternates: { canonical: "/" },
 };
 
@@ -27,9 +27,9 @@ const formats = [
 ];
 
 const ages = [
-  { title: "Children", text: "A patient, encouraging start for young learners, with a parent or guardian involved in enrolment." },
-  { title: "Teenagers", text: "Build real playing ability and musical understanding at your own pace." },
-  { title: "Adults", text: "Starting out or coming back to music? It is never too late to begin." },
+  { title: "Children", href: "/kids-and-teens-piano-lessons", text: "A patient, encouraging start for young learners, with a parent or guardian involved in enrolment." },
+  { title: "Teenagers", href: "/kids-and-teens-piano-lessons", text: "Build real playing ability and musical understanding at your own pace." },
+  { title: "Adults", href: "/adult-piano-lessons", text: "Starting out or coming back to music? It is never too late to begin." },
 ];
 
 const why = [
@@ -99,7 +99,8 @@ export default function HomePage() {
             </Reveal>
           ))}
         </div>
-        <div className="mt-10"><ButtonLink href="/piano-lessons" variant="secondary" arrow>More about the lessons</ButtonLink></div>
+        <div className="mt-10"><ButtonLink href="/piano-lessons" variant="secondary" arrow>More about the lessons</ButtonLink>
+          <p className="mt-5 text-brand-ink/75">New to piano? See <Link className="link" href="/beginner-piano-lessons">beginner piano lessons</Link>, or <Link className="link" href="/online-piano-lessons">learn online</Link>.</p></div>
       </Section>
 
       <Section id="try" tone="dark" title={<>Go on, <Accent>play a note.</Accent></>} intro="Two octaves from middle C. Tap the keys. This is just for fun, nothing is recorded.">
@@ -147,11 +148,12 @@ export default function HomePage() {
         <div className="grid gap-5 md:grid-cols-3">
           {ages.map((a, i) => (
             <Reveal key={a.title} delay={i * 0.05}>
-              <div className="h-full rounded-[2rem] bg-brand-plum p-8 text-white transition duration-300 hover:-translate-y-1">
+              <Link href={a.href} className="group block h-full rounded-[2rem] bg-brand-plum p-8 text-white transition duration-300 hover:-translate-y-1">
                 <span className="font-display text-6xl font-extrabold leading-none text-brand-rose">0{i + 1}</span>
                 <h3 className="mt-6 text-2xl font-extrabold">{a.title}</h3>
                 <p className="mt-3 leading-relaxed text-white/70">{a.text}</p>
-              </div>
+                <span className="mt-5 inline-flex items-center gap-2 font-bold text-brand-honey">Lessons for {a.title.toLowerCase()} <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span></span>
+              </Link>
             </Reveal>
           ))}
         </div>

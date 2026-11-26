@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { nav, site, whatsappDisplay, whatsappLink } from "@/config/site";
 import { Logo } from "./Logo";
+import { landings } from "@/config/landing";
 import { KeyStrip } from "./PianoKeys";
 
 export function FreshWindCredit({ className = "" }: { className?: string }) {
@@ -22,16 +23,27 @@ export function Footer() {
   return (
     <footer className="mt-24 bg-brand-ink text-white">
       <KeyStrip />
-      <div className="container-page grid gap-10 py-14 md:grid-cols-3">
+      <div className="container-page grid gap-10 py-14 md:grid-cols-[1.2fr_1fr_1.2fr_1.2fr]">
         <div className="space-y-4">
           <Logo light />
           <p className="font-display text-lg font-bold text-brand-honey">{site.tagline}</p>
           <FreshWindCredit className="text-sm text-white/75" />
         </div>
-        <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
-          {[...nav, { href: "/enrol", label: "Enrol Now" }].map((n) => (
-            <Link key={n.href} href={n.href} className="inline-flex min-h-11 items-center text-white/85 hover:text-brand-honey">{n.label}</Link>
-          ))}
+        <nav aria-label="Footer" className="text-sm">
+          <h2 className="font-display text-base font-bold text-white">Explore</h2>
+          <ul className="mt-1">
+            {[...nav, { href: "/enrol", label: "Enrol Now" }].map((n) => (
+              <li key={n.href}><Link href={n.href} className="inline-flex min-h-11 items-center text-white/85 hover:text-brand-honey">{n.label}</Link></li>
+            ))}
+          </ul>
+        </nav>
+        <nav aria-label="Lessons" className="text-sm">
+          <h2 className="font-display text-base font-bold text-white">Lessons</h2>
+          <ul className="mt-1">
+            {[...landings.map((l) => ({ href: l.path, label: l.navName })), { href: "/faq", label: "FAQ" }].map((n) => (
+              <li key={n.href}><Link href={n.href} className="inline-flex min-h-11 items-center text-white/85 hover:text-brand-honey">{n.label}</Link></li>
+            ))}
+          </ul>
         </nav>
         <div className="space-y-2 text-sm text-white/85">
           <h2 className="font-display text-base font-bold text-white">Get in touch</h2>

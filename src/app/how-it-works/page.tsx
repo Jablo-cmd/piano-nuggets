@@ -1,4 +1,5 @@
-import { pageOpenGraph } from "@/config/seo";
+import { breadcrumbLd, pageOpenGraph, webPageLd } from "@/config/seo";
+import { JsonLd } from "@/components/JsonLd";
 import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import { Building2, Globe, Home as HomeIcon, Check } from "lucide-react";
@@ -9,7 +10,7 @@ import { images } from "@/config/images";
 
 export const metadata: Metadata = {
   title: "How Piano Lessons Work",
-  description: "Studio, home or online piano lessons, and how enrolment works from your first enquiry to your first lesson.",
+  description: "Piano lessons at the studio, at home or online, and how enrolment works from your first enquiry to your first lesson. What you need for online lessons.",
   alternates: { canonical: "/how-it-works" },
   openGraph: pageOpenGraph("/how-it-works", "How Piano Lessons Work | Piano Nuggets"),
 };
@@ -24,6 +25,8 @@ const steps = [
 export default function HowItWorksPage() {
   return (
     <>
+      <JsonLd data={webPageLd("/how-it-works", "How Piano Lessons Work | Piano Nuggets", metadata.description as string)} />
+      <JsonLd data={breadcrumbLd([{ name: "Home", path: "/" }, { name: "How It Works", path: "/how-it-works" }])} />
       <PageHero eyebrow="How It Works" title={<>From first enquiry to <Accent>first lesson.</Accent></>}>
         Choose where you would like to learn, tell us a little about the learner, and we will take it from there.
       </PageHero>
