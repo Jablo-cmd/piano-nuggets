@@ -65,8 +65,7 @@ export default function HomePage() {
           </div>
 
           <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
-            <div className="absolute -inset-3 translate-x-4 translate-y-4 rotate-2 rounded-[2.5rem] bg-brand-honey" aria-hidden="true" />
-            <Photo src={images.studioRoom.src} alt={images.studioRoom.alt} focus="68% center" className="relative aspect-[4/3.4] w-full !rounded-[2.5rem] shadow-lift" sizes="(min-width:1024px) 48vw, 100vw" priority />
+            <Photo src={images.studioRoom.src} alt={images.studioRoom.alt} focus="60% center" className="relative aspect-[4/3] w-full !rounded-[2.5rem] shadow-lift" sizes="(min-width:1024px) 48vw, 100vw" priority />
           </div>
         </div>
       </section>
@@ -82,7 +81,6 @@ export default function HomePage() {
             <FreshWindCredit className="inline-block rounded-full bg-white px-5 py-2.5 text-base shadow-soft" />
           </div>
           <div className="relative">
-            <div className="absolute -inset-2 -rotate-2 rounded-[2rem] bg-brand-honey" aria-hidden="true" />
             <Photo src={images.theoryGroup.src} alt={images.theoryGroup.alt} className="relative aspect-[16/9] w-full shadow-lift" sizes="(min-width:768px) 50vw, 100vw" />
           </div>
         </Reveal>
