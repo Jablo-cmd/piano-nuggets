@@ -13,8 +13,8 @@ export const site = {
     "Piano and keyboard lessons for children, teenagers and adults. Practical playing, music theory, harmony and technique, at the studio, at home or online.",
   url: siteUrl,
   supportedBy: "Fresh Wind Music",
-  /** Fresh Wind Music link: TBC. Falls back to plain text when unset. */
-  freshWindUrl: clean(process.env.NEXT_PUBLIC_FRESH_WIND_URL),
+  /** Fresh Wind Music website (confirmed by the owner); the env var can override it. */
+  freshWindUrl: clean(process.env.NEXT_PUBLIC_FRESH_WIND_URL) ?? "https://freshwindmusic.aurisnexus.co.za/",
   whatsappNumber: clean(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER)?.replace(/\D/g, "") ?? null,
   contactEmail: clean(process.env.NEXT_PUBLIC_CONTACT_EMAIL),
   /** Studio address (confirmed by the owner); the env var can override the display text. */
