@@ -41,8 +41,8 @@ Guidance: titles roughly 50–60 characters, descriptions roughly 140–160, uni
 | Piano Lessons | Piano & Keyboard Lessons for All Ages \| Piano Nuggets | Learn practical piano, music theory, harmony and technique in individual or group lessons. |
 | Pricing | Piano Lesson Prices \| Piano Nuggets | See clear lesson fees, what each price covers and how it is billed. Prices in rand. |
 | How It Works | How Piano Lessons Work \| Piano Nuggets | Studio, home or online lessons, and how enrolment works from enquiry to first lesson. |
-| About | About Piano Nuggets | Our approach to welcoming, practical piano learning, supported by Fresh Wind Music. |
-| Contact | Contact Piano Nuggets | Get in touch about piano and keyboard lessons. |
+| About | About Us | Our approach to welcoming, practical piano learning, supported by Fresh Wind Music. |
+| Contact | Contact Us | Get in touch about piano and keyboard lessons. |
 | Enrol Now | Enrol for Piano Lessons \| Piano Nuggets | Send an enrolment enquiry; our team will contact you to arrange lessons. |
 
 Do not state "book now" or imply instant booking; the site collects enquiries.

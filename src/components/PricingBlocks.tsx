@@ -100,8 +100,8 @@ export function PricingPreview() {
     ["Individual lesson", fmt(pricing.individual.amount), "per 60-minute lesson"],
     ["Once weekly (4 lessons)", fmt(pricing.onceWeekly.amount), "per four-week month"],
     ["Twice weekly (8 lessons)", fmt(pricing.twiceWeekly.amount), "per four-week month"],
-    ["Studio group (4–6 students)", fmt(pricing.studioGroup.amount), "per session, whole group"],
-    ["Online group", fmt(pricing.onlineGroup.amount), "per student, per lesson"],
+    ["Studio group (4–6 students)", fmt(pricing.studioGroup.amount), "per 60-minute session, whole group"],
+    ["Online group", fmt(pricing.onlineGroup.amount), "per student, per 60-minute lesson"],
   ];
   return (
     <div className="card overflow-hidden !p-0">

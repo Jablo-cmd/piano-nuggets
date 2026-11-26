@@ -1,3 +1,4 @@
+import { pageOpenGraph } from "@/config/seo";
 import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import { Building2, Globe, Home as HomeIcon, Check } from "lucide-react";
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   title: "How Piano Lessons Work",
   description: "Studio, home or online piano lessons, and how enrolment works from your first enquiry to your first lesson.",
   alternates: { canonical: "/how-it-works" },
-  openGraph: { url: "/how-it-works", title: "How Piano Lessons Work | Piano Nuggets" },
+  openGraph: pageOpenGraph("/how-it-works", "How Piano Lessons Work | Piano Nuggets"),
 };
 
 const steps = [
@@ -33,7 +34,7 @@ export default function HowItWorksPage() {
           <Reveal delay={0.1} className="card h-full"><Globe aria-hidden className="h-8 w-8 text-brand-ink" /><h3 className="mt-4 text-xl font-bold">Online lessons</h3><p className="mt-2 text-brand-ink/75">Zoom is preferred. Another platform can be used if the sound quality is good enough for lessons to run smoothly.</p></Reveal>
         </div>
       </Section>
-      <div className="container-page"><Reveal><Photo src={images.handsOn.src} alt={images.handsOn.alt} className="aspect-[21/9] w-full shadow-soft" sizes="(min-width:1152px) 1100px, 100vw" /></Reveal></div>
+      <div className="container-page pb-16 sm:pb-24"><Reveal><Photo src={images.handsOn.src} alt={images.handsOn.alt} focus="center 40%" className="aspect-[2/1] w-full shadow-soft" sizes="(min-width:1152px) 1100px, 100vw" /></Reveal></div>
       <Section id="online" tone="mist" title="What you need for online lessons">
         <ul className="grid gap-3 text-lg md:grid-cols-2">
           {[
@@ -57,7 +58,7 @@ export default function HowItWorksPage() {
             </Reveal>
           ))}
         </ol>
-        <p className="mt-6 rounded-xl2 bg-brand-mist p-5 font-semibold">An enquiry is not a confirmed booking or guaranteed place. Lessons are confirmed only when our team has spoken with you.</p>
+        <p className="mt-8 rounded-[1.5rem] bg-brand-mist p-5 font-semibold">An enquiry is not a confirmed booking or guaranteed place. Lessons are confirmed only when our team has spoken with you.</p>
       </Section>
       <EnrolCta />
     </>

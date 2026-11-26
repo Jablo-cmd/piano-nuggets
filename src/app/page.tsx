@@ -83,7 +83,7 @@ export default function HomePage() {
           </div>
           <div className="relative">
             <div className="absolute -inset-2 -rotate-2 rounded-[2rem] bg-brand-honey" aria-hidden="true" />
-            <Photo src={images.theoryGroup.src} alt={images.theoryGroup.alt} className="relative aspect-[16/10] w-full shadow-lift" sizes="(min-width:768px) 50vw, 100vw" />
+            <Photo src={images.theoryGroup.src} alt={images.theoryGroup.alt} className="relative aspect-[16/9] w-full shadow-lift" sizes="(min-width:768px) 50vw, 100vw" />
           </div>
         </Reveal>
       </Section>

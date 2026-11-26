@@ -28,7 +28,7 @@ This repository holds the documentation foundation, and later the source code, f
 
 ## 4. Proposals and unresolved items
 
-- The technology stack (Next.js, TypeScript, Tailwind CSS, shadcn/ui, Framer Motion, Lucide, Vercel) is **proposed, not approved**. See [Technical Plan](TECHNICAL_PLAN.md).
+- The technology stack as built is Next.js, TypeScript, Tailwind CSS, Lucide, Zod and Vercel (shadcn/ui and Framer Motion were proposed but not used). See [Technical Plan](TECHNICAL_PLAN.md).
 - Supabase is **optional and not approved**; the Technical Plan assesses whether it is needed.
 - `pianonuggets.co.za` is a **potential future domain**; registration has not been confirmed.
 - Contact details, studio address, instructor details and policies are **TBC**. See [Roadmap and Open Decisions](ROADMAP_AND_OPEN_DECISIONS.md).

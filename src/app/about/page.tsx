@@ -1,3 +1,4 @@
+import { pageOpenGraph } from "@/config/seo";
 import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import { EnrolCta, PageHero, Section } from "@/components/Sections";
@@ -7,10 +8,10 @@ import { Photo } from "@/components/Photo";
 import { images } from "@/config/images";
 
 export const metadata: Metadata = {
-  title: "About Piano Nuggets",
+  title: "About Us",
   description: "Piano Nuggets is a welcoming piano and keyboard education initiative supported by Fresh Wind Music.",
   alternates: { canonical: "/about" },
-  openGraph: { url: "/about", title: "About Piano Nuggets" },
+  openGraph: pageOpenGraph("/about", "About Us | Piano Nuggets"),
 };
 
 export default function AboutPage() {
@@ -20,9 +21,9 @@ export default function AboutPage() {
         Piano Nuggets is a music education initiative supported by {site.supportedBy}.
       </PageHero>
       <Section id="approach" title="Our approach">
-        <Photo src={images.theoryOneToOne.src} alt={images.theoryOneToOne.alt} className="mb-10 aspect-[21/9] w-full shadow-soft" sizes="(min-width:1152px) 1100px, 100vw" />
+        <Photo src={images.theoryOneToOne.src} alt={images.theoryOneToOne.alt} focus="center 30%" className="mb-10 aspect-[2/1] w-full shadow-soft" sizes="(min-width:1152px) 1100px, 100vw" />
         <div className="grid gap-6 text-lg leading-relaxed text-brand-ink/80 md:grid-cols-2">
-          <p>We believe learning piano should feel approachable, rewarding and exciting. Piano Nuggets is a place where any learner can begin, grow and feel valued, whether they are seven or seventy.</p>
+          <p>We believe learning piano should feel approachable, rewarding and exciting. Piano Nuggets is a place where any learner can begin, grow and feel valued, whatever their age.</p>
           <p>Our lessons combine practical playing with the music theory, harmony and technique behind it, so learners build confidence step by step and understand what they play.</p>
         </div>
       </Section>

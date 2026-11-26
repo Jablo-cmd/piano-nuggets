@@ -47,7 +47,7 @@ Treat the documentation as the current source of truth. Where a detail is marked
 
 ## Development
 
-Phase one public website: Next.js (App Router), TypeScript, Tailwind CSS, Framer Motion, Lucide. No backend, database or analytics is connected.
+Phase one public website: Next.js (App Router), TypeScript, Tailwind CSS, Lucide, Zod. No backend, database or analytics is connected.
 
 ```bash
 npm install

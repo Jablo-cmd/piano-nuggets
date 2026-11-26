@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { JsonLd } from "@/components/JsonLd";
 import { site } from "@/config/site";
+import { ogImage } from "@/config/seo";
 
 const display = Outfit({ subsets: ["latin"], weight: ["500", "600", "700", "800"], variable: "--font-display", display: "swap" });
 const accent = Fraunces({ subsets: ["latin"], style: ["italic"], axes: ["SOFT", "opsz"], variable: "--font-accent", display: "swap" });
@@ -24,9 +25,9 @@ export const metadata: Metadata = {
     title: "Piano Nuggets — Piano & Keyboard Lessons",
     description: site.description,
     url: "/",
-    images: [{ url: "/images/piano-lesson-studio.webp", width: 1672, height: 941, alt: "A learner and instructor at the piano" }],
+    images: [ogImage],
   },
-  twitter: { card: "summary_large_image", title: "Piano Nuggets", description: site.description, images: ["/images/piano-lesson-studio.webp"] },
+  twitter: { card: "summary_large_image", title: "Piano Nuggets", description: site.description, images: [ogImage.url] },
 };
 
 export const viewport: Viewport = { themeColor: "#E9A71C", width: "device-width", initialScale: 1 };

@@ -9,14 +9,20 @@ This is a proposed implementation direction, not a final technology approval. Th
 - **Framework:** Next.js (App Router).
 - **Language:** TypeScript.
 - **Styling:** Tailwind CSS.
-- **UI primitives:** shadcn/ui where useful, with a distinct Piano Nuggets design system.
+- **UI primitives:** a custom Piano Nuggets design system (shadcn/ui was proposed but not needed).
 - **Icons:** Lucide.
-- **Motion:** Framer Motion only for subtle, purposeful interactions; honour reduced-motion preferences.
-- **Data and form storage:** Supabase may be used for secure enquiry storage if approved and configured.
+- **Validation:** Zod (client-side only for now).
+- **Fonts:** Outfit (headings), Fraunces italic (accent words), DM Sans (body), via `next/font`.
+- **Motion:** CSS only (a small IntersectionObserver reveal and hover transitions); no looping animations; reduced-motion honoured. Framer Motion was proposed but is not used.
+- **Data and form storage:** none. Supabase is not used and is not approved.
 - **Hosting:** Vercel.
 - **Version control:** GitHub repository `Jablo-cmd/piano-nuggets`.
 
 Do not add dependencies simply because they are listed here. Choose a lean implementation and document any material deviations.
+
+### As built (26 Nov 2026)
+
+Phase one is live on Vercel (project `piano-nuggets`, production branch `main`). Stack: Next.js 15 (App Router), TypeScript, Tailwind CSS 3, Lucide, Zod. There is no backend, database, analytics or email service. The enrolment form is a validated interface only: `src/lib/submitEnquiry.ts` is deliberately not connected, nothing is transmitted, and `NEXT_PUBLIC_ENQUIRIES_ENABLED` stays off. Security headers (`X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, `Cross-Origin-Opener-Policy`) are set in `next.config.mjs`; a Content-Security-Policy has not been added. Public contact details come from `NEXT_PUBLIC_*` variables set in Vercel (see `.env.example`).
 
 ## 3. Hosting and domains
 

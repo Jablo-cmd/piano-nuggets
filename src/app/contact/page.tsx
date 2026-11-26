@@ -1,3 +1,4 @@
+import { pageOpenGraph } from "@/config/seo";
 import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -8,10 +9,10 @@ import { JsonLd } from "@/components/JsonLd";
 import { site, whatsappDisplay, whatsappLink } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Contact Piano Nuggets",
+  title: "Contact Us",
   description: "Get in touch about piano and keyboard lessons, home-lesson quotations or enrolment. Message us on WhatsApp or send an email.",
   alternates: { canonical: "/contact" },
-  openGraph: { url: "/contact", title: "Contact Piano Nuggets" },
+  openGraph: pageOpenGraph("/contact", "Contact Us | Piano Nuggets"),
 };
 
 function Pending() {

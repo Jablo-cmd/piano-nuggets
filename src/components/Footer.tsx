@@ -30,14 +30,14 @@ export function Footer() {
         </div>
         <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
           {[...nav, { href: "/enrol", label: "Enrol Now" }].map((n) => (
-            <Link key={n.href} href={n.href} className="py-1 text-white/85 hover:text-brand-honey">{n.label}</Link>
+            <Link key={n.href} href={n.href} className="inline-flex min-h-11 items-center text-white/85 hover:text-brand-honey">{n.label}</Link>
           ))}
         </nav>
         <div className="space-y-2 text-sm text-white/85">
           <h2 className="font-display text-base font-bold text-white">Get in touch</h2>
-          {wa && whatsappDisplay ? <p>WhatsApp: <a className="font-semibold underline underline-offset-4 hover:text-brand-honey" href={wa}>{whatsappDisplay}</a></p> : <p>WhatsApp: to be confirmed</p>}
-          {site.contactEmail ? <p>Email: <a className="font-semibold underline underline-offset-4 hover:text-brand-honey" href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a></p> : <p>Email: to be confirmed</p>}
-          <p><Link className="underline underline-offset-4" href="/contact">Contact page</Link></p>
+          {wa && whatsappDisplay ? <p>WhatsApp: <a className="inline-flex min-h-11 items-center font-semibold underline underline-offset-4 hover:text-brand-honey" href={wa}>{whatsappDisplay}</a></p> : <p>WhatsApp: to be confirmed</p>}
+          {site.contactEmail ? <p>Email: <a className="inline-flex min-h-11 items-center font-semibold underline underline-offset-4 hover:text-brand-honey" href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a></p> : <p>Email: to be confirmed</p>}
+          <p><Link className="inline-flex min-h-11 items-center underline underline-offset-4" href="/contact">Contact page</Link></p>
         </div>
       </div>
       <div className="border-t border-white/15 py-5 text-center text-xs text-white/60">

@@ -1,3 +1,4 @@
+import { pageOpenGraph } from "@/config/seo";
 import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import { EnrolForm } from "@/components/EnrolForm";
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
   title: "Enrol for Piano Lessons",
   description: "Start an enrolment enquiry for piano or keyboard lessons. Our team will contact you to arrange lessons.",
   alternates: { canonical: "/enrol" },
-  openGraph: { url: "/enrol", title: "Enrol for Piano Lessons | Piano Nuggets" },
+  openGraph: pageOpenGraph("/enrol", "Enrol for Piano Lessons | Piano Nuggets"),
 };
 
 export default function EnrolPage() {

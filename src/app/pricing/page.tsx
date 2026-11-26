@@ -1,3 +1,4 @@
+import { pageOpenGraph } from "@/config/seo";
 import { Accent } from "@/components/Accent";
 import type { Metadata } from "next";
 import { EnrolCta, PageHero, Section } from "@/components/Sections";
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   title: "Piano Lesson Prices",
   description: "Clear piano lesson fees in rand, with each price shown against exactly what it covers: per lesson, per month, per group or per student.",
   alternates: { canonical: "/pricing" },
-  openGraph: { url: "/pricing", title: "Piano Lesson Prices | Piano Nuggets" },
+  openGraph: pageOpenGraph("/pricing", "Piano Lesson Prices | Piano Nuggets"),
 };
 
 export default function PricingPage() {
